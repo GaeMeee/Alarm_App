@@ -13,21 +13,28 @@ class CustomTabBarController: UITabBarController {
         super.viewDidLoad()
 
         let alarmVC = AlarmViewController()
-        alarmVC.tabBarItem = UITabBarItem(title: "알람", image: UIImage(systemName: "alarm.fill"), tag: 0)
+        let alarmTabBarItem = UITabBarItem(title: "알람", image: UIImage(systemName: "alarm.fill"), tag: 0)
+        let alarmNavigationController = UINavigationController(rootViewController: alarmVC)
+        alarmNavigationController.tabBarItem = alarmTabBarItem
         
         let timerVC = TimerViewController()
-        timerVC.tabBarItem = UITabBarItem(title: "타이머", image: UIImage(systemName: "timer"), tag: 1)
-        
+        let timerTabBarItem = UITabBarItem(title: "타이머", image: UIImage(systemName: "timer"), tag: 1)
+        let timerNavigationController = UINavigationController(rootViewController: alarmVC)
+        timerNavigationController.tabBarItem = timerTabBarItem
+
         let stopVC = StopWatchViewController()
-        stopVC.tabBarItem = UITabBarItem(title: "스탑워치", image: UIImage(systemName: "stopwatch.fill"), tag: 2)
+        let stopTabBarItem = UITabBarItem(title: "스탑워치", image: UIImage(systemName: "stopwatch.fill"), tag: 2)
+        let stopNavigationController = UINavigationController(rootViewController: alarmVC)
+        stopNavigationController.tabBarItem = stopTabBarItem
+
         
-        let wolrdVC = WorldClockViewController()
-        wolrdVC.tabBarItem = UITabBarItem(title: "세계 시계", image: UIImage(systemName: "globe"), tag: 3)
+        let worldVC = WorldClockViewController()
+        let worldTabBarItem = UITabBarItem(title: "세계 시계", image: UIImage(systemName: "globe"), tag: 3)
+        let worldNavigationCoontroller = UINavigationController(rootViewController: worldVC)
+        worldNavigationCoontroller.tabBarItem = worldTabBarItem
         
-        self.viewControllers = [alarmVC, timerVC, stopVC, wolrdVC]
-        
-        self.modalPresentationStyle = .fullScreen
-        
+        self.viewControllers = [alarmNavigationController, timerNavigationController, stopNavigationController, worldNavigationCoontroller]
+                
         self.tabBar.unselectedItemTintColor = .gray
         self.tabBar.tintColor = .orange
     }
