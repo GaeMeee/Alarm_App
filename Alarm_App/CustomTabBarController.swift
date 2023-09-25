@@ -19,12 +19,12 @@ class CustomTabBarController: UITabBarController {
         
         let timerVC = TimerViewController()
         let timerTabBarItem = UITabBarItem(title: "타이머", image: UIImage(systemName: "timer"), tag: 1)
-        let timerNavigationController = UINavigationController(rootViewController: alarmVC)
+        let timerNavigationController = UINavigationController(rootViewController: timerVC)
         timerNavigationController.tabBarItem = timerTabBarItem
 
         let stopVC = StopWatchViewController()
         let stopTabBarItem = UITabBarItem(title: "스탑워치", image: UIImage(systemName: "stopwatch.fill"), tag: 2)
-        let stopNavigationController = UINavigationController(rootViewController: alarmVC)
+        let stopNavigationController = UINavigationController(rootViewController: stopVC)
         stopNavigationController.tabBarItem = stopTabBarItem
 
         
