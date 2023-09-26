@@ -22,6 +22,7 @@
 		F174F4622AC131D6009AAAB7 /* Alarm.swift in Sources */ = {isa = PBXBuildFile; fileRef = F174F4612AC131D6009AAAB7 /* Alarm.swift */; };
 		F174F4642AC131E7009AAAB7 /* WorldClock.swift in Sources */ = {isa = PBXBuildFile; fileRef = F174F4632AC131E7009AAAB7 /* WorldClock.swift */; };
 		F174F46A2AC170E7009AAAB7 /* NotificationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F174F4692AC170E7009AAAB7 /* NotificationController.swift */; };
+		F1E76B0D2AC28AAE00C06763 /* AudioController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1E76B0C2AC28AAE00C06763 /* AudioController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -43,6 +44,7 @@
 		F174F4632AC131E7009AAAB7 /* WorldClock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = WorldClock.swift; path = Alarm_App/Models/WorldClock.swift; sourceTree = SOURCE_ROOT; };
 		F174F4692AC170E7009AAAB7 /* NotificationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationController.swift; sourceTree = "<group>"; };
 		F174F46B2AC176D9009AAAB7 /* Alarm_App.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Alarm_App.entitlements; sourceTree = "<group>"; };
+		F1E76B0C2AC28AAE00C06763 /* AudioController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -104,6 +106,7 @@
 		D6AF47A42AC1204700E5C813 /* Controlles */ = {
 			isa = PBXGroup;
 			children = (
+				F1E76B0E2AC28AB500C06763 /* Audio */,
 				F174F4682AC170D9009AAAB7 /* Notification  */,
 				D6AF47B02AC1210500E5C813 /* WroldClock */,
 				D6AF47AD2AC120DA00E5C813 /* StopWatch */,
@@ -200,6 +203,14 @@
 			path = "Notification ";
 			sourceTree = "<group>";
 		};
+		F1E76B0E2AC28AB500C06763 /* Audio */ = {
+			isa = PBXGroup;
+			children = (
+				F1E76B0C2AC28AAE00C06763 /* AudioController.swift */,
+			);
+			path = Audio;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -270,6 +281,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F1E76B0D2AC28AAE00C06763 /* AudioController.swift in Sources */,
 				D6AF47AC2AC120D700E5C813 /* TimerViewController.swift in Sources */,
 				F174F4642AC131E7009AAAB7 /* WorldClock.swift in Sources */,
 				D6AF47B22AC1211A00E5C813 /* WorldClockViewController.swift in Sources */,

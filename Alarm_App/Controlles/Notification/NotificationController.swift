@@ -7,6 +7,7 @@
 
 import Foundation
 import UserNotifications
+import AVFoundation
 
 protocol NotificationControllerProtocol {
     func isAuthorization(_ completion: @escaping (Bool) -> Void)
@@ -14,6 +15,9 @@ protocol NotificationControllerProtocol {
     func notificationRegist(_ content: Alarm)
     func notificationRemove(_ content: Alarm)
     func notificationUpdate(_ content: Alarm)
+    func `notificationRegist`(_ content: Timer)
+    func `notificationRemove`(_ content: Timer)
+    func `notificationUpdate`(_ content: Timer)
 }
 
 final class NotificationController: NSObject, NotificationControllerProtocol {
@@ -24,6 +28,8 @@ final class NotificationController: NSObject, NotificationControllerProtocol {
         super.init()
         unUserNotificationCenter.delegate = self
         notificationCategoriesRegist()
+        let audio = AudioController()
+        audio.prepare("default")
     }
     
     func requestAuthorization() {
@@ -110,6 +116,32 @@ final class NotificationController: NSObject, NotificationControllerProtocol {
         unUserNotificationCenter.add(request)
     }
     
+    func `notificationRegist`(_ content: Timer) {
+        var time = content.timerTime
+        var timeString = ""
+        timeString = String(format: "%02d", time/3600) + ":"
+        time %= 3600
+        timeString += String(format: "%02d", time/60) + ":"
+        time %= 60
+        timeString += String(format: "%02d", time)
+        let notificationContent = notificationContent(
+            title: timeString,
+            body: "타이머"
+        )
+        let trigger = UNTimeIntervalNotificationTrigger(timeInterval: .init(content.remainingTime), repeats: false)
+        let request = UNNotificationRequest(identifier: "Timer", content: notificationContent, trigger: trigger)
+        unUserNotificationCenter.add(request)
+    }
+    
+    func `notificationRemove`(_ content: Timer) {
+        unUserNotificationCenter.removePendingNotificationRequests(withIdentifiers: ["Timer"])
+    }
+    
+    func `notificationUpdate`(_ content: Timer) {
+        notificationRemove(content)
+        notificationRegist(content)
+    }
+    
     func notificationRemove(_ content: Alarm) {
         unUserNotificationCenter.removePendingNotificationRequests(withIdentifiers: ["Alarm \(content.setTime.hourAndMinute)"])
     }
@@ -118,6 +150,7 @@ final class NotificationController: NSObject, NotificationControllerProtocol {
         notificationRemove(content)
         notificationRegist(content)
     }
+    
 }
 
 extension NotificationController: UNUserNotificationCenterDelegate {
@@ -128,3 +161,4 @@ extension NotificationController: UNUserNotificationCenterDelegate {
         completionHandler([.list, .sound, .banner])
     }
 }
+
