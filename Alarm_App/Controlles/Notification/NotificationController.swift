@@ -11,15 +11,21 @@ import UserNotifications
 protocol NotificationControllerProtocol {
     func isAuthorization(_ completion: @escaping (Bool) -> Void)
     func requestAuthorization()
+    func notiNext(_ content: Alarm)
 }
 
-struct NotificationController: NotificationControllerProtocol {
+final class NotificationController: NSObject, NotificationControllerProtocol {
     
     private let unUserNotificationCenter = UNUserNotificationCenter.current()
     
+    override init() {
+        super.init()
+        unUserNotificationCenter.delegate = self
+    }
+    
     func requestAuthorization() {
         
-        UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .badge, .sound]) { allow, error in
+        unUserNotificationCenter.requestAuthorization(options: [.alert, .sound]) { allow, error in
             if let error {
                 print("UNUserNotificationCenter Error Ocurred: \(error)")
             } else {
@@ -35,7 +41,7 @@ struct NotificationController: NotificationControllerProtocol {
     
     func isAuthorization(_ completion: @escaping (Bool) -> Void) {
         if #available(iOS 10.0, *) {
-            UNUserNotificationCenter.current().getNotificationSettings { settings in
+            unUserNotificationCenter.getNotificationSettings { settings in
                 if settings.authorizationStatus == .authorized {
                     completion(true)
                 } else {
@@ -45,5 +51,31 @@ struct NotificationController: NotificationControllerProtocol {
         } else {
             completion(false)
         }
+    }
+    
+    private func notificationContent(title: String, body: String? = nil) -> UNMutableNotificationContent {
+        let notificationContent = UNMutableNotificationContent()
+        notificationContent.title = title
+        if let body {
+            notificationContent.body = body
+        }
+        return notificationContent
+    }
+    
+    func notiNext(_ content: Alarm) {
+        let notificationContent = notificationContent(title: content.setTime.hourAndMinute, body: content.content)
+        let dateComponents = Calendar.current.dateComponents([.hour, .minute, .second], from: content.setTime)
+        let trigger = UNCalendarNotificationTrigger(dateMatching: dateComponents, repeats: false)
+        let request = UNNotificationRequest(identifier: "LocalNoti", content: notificationContent, trigger: trigger)
+        unUserNotificationCenter.add(request)
+    }
+}
+
+extension NotificationController: UNUserNotificationCenterDelegate {
+    func userNotificationCenter(_ center: UNUserNotificationCenter, didReceive response: UNNotificationResponse, withCompletionHandler completionHandler: @escaping () -> Void) {
+        completionHandler()
+    }
+    func userNotificationCenter(_ center: UNUserNotificationCenter, willPresent notification: UNNotification, withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void) {
+        completionHandler([.list, .sound, .banner])
     }
 }

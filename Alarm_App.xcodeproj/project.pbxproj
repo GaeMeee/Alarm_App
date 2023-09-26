@@ -16,6 +16,7 @@
 		D6AF47AF2AC120FB00E5C813 /* StopWatchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6AF47AE2AC120FB00E5C813 /* StopWatchViewController.swift */; };
 		D6AF47B22AC1211A00E5C813 /* WorldClockViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6AF47B12AC1211A00E5C813 /* WorldClockViewController.swift */; };
 		D6AF47B82AC122F400E5C813 /* CustomTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6AF47B72AC122F400E5C813 /* CustomTabBarController.swift */; };
+		F15832F52AC262EC00BAB769 /* Date+Format.swift in Sources */ = {isa = PBXBuildFile; fileRef = F15832F42AC262EC00BAB769 /* Date+Format.swift */; };
 		F174F45E2AC131A7009AAAB7 /* Timer.swift in Sources */ = {isa = PBXBuildFile; fileRef = F174F45D2AC131A7009AAAB7 /* Timer.swift */; };
 		F174F4602AC131B9009AAAB7 /* StopWatch.swift in Sources */ = {isa = PBXBuildFile; fileRef = F174F45F2AC131B9009AAAB7 /* StopWatch.swift */; };
 		F174F4622AC131D6009AAAB7 /* Alarm.swift in Sources */ = {isa = PBXBuildFile; fileRef = F174F4612AC131D6009AAAB7 /* Alarm.swift */; };
@@ -35,6 +36,7 @@
 		D6AF47AE2AC120FB00E5C813 /* StopWatchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StopWatchViewController.swift; sourceTree = "<group>"; };
 		D6AF47B12AC1211A00E5C813 /* WorldClockViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorldClockViewController.swift; sourceTree = "<group>"; };
 		D6AF47B72AC122F400E5C813 /* CustomTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTabBarController.swift; sourceTree = "<group>"; };
+		F15832F42AC262EC00BAB769 /* Date+Format.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Format.swift"; sourceTree = "<group>"; };
 		F174F45D2AC131A7009AAAB7 /* Timer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Timer.swift; path = Alarm_App/Models/Timer.swift; sourceTree = SOURCE_ROOT; };
 		F174F45F2AC131B9009AAAB7 /* StopWatch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = StopWatch.swift; path = Alarm_App/Models/StopWatch.swift; sourceTree = SOURCE_ROOT; };
 		F174F4612AC131D6009AAAB7 /* Alarm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Alarm.swift; path = Alarm_App/Models/Alarm.swift; sourceTree = SOURCE_ROOT; };
@@ -73,6 +75,7 @@
 		D679F80A2AC11D380040E51B /* Alarm_App */ = {
 			isa = PBXGroup;
 			children = (
+				F15832F32AC262DC00BAB769 /* Extension */,
 				F174F46B2AC176D9009AAAB7 /* Alarm_App.entitlements */,
 				F174F4652AC1333B009AAAB7 /* Models */,
 				D679F80B2AC11D380040E51B /* AppDelegate.swift */,
@@ -168,6 +171,14 @@
 			children = (
 			);
 			path = WroldClock;
+			sourceTree = "<group>";
+		};
+		F15832F32AC262DC00BAB769 /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				F15832F42AC262EC00BAB769 /* Date+Format.swift */,
+			);
+			path = Extension;
 			sourceTree = "<group>";
 		};
 		F174F4652AC1333B009AAAB7 /* Models */ = {
@@ -271,6 +282,7 @@
 				F174F4622AC131D6009AAAB7 /* Alarm.swift in Sources */,
 				D679F80E2AC11D380040E51B /* SceneDelegate.swift in Sources */,
 				F174F45E2AC131A7009AAAB7 /* Timer.swift in Sources */,
+				F15832F52AC262EC00BAB769 /* Date+Format.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
