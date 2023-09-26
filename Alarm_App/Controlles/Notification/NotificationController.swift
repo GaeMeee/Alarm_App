@@ -5,7 +5,7 @@
 //  Created by hong on 2023/09/25.
 //
 
-import Foundation
+import UIKit
 import UserNotifications
 import AVFoundation
 
@@ -23,22 +23,21 @@ protocol NotificationControllerProtocol {
 final class NotificationController: NSObject, NotificationControllerProtocol {
     
     private let unUserNotificationCenter = UNUserNotificationCenter.current()
+    private let audioController = AudioController()
     
     override init() {
         super.init()
-        unUserNotificationCenter.delegate = self
         notificationCategoriesRegist()
-        let audio = AudioController()
-        audio.prepare("default")
     }
     
     func requestAuthorization() {
         
-        unUserNotificationCenter.requestAuthorization(options: [.alert, .sound]) { allow, error in
+        unUserNotificationCenter.requestAuthorization(options: [.alert, .sound]) { [weak self] allow, error in
             if let error {
                 print("UNUserNotificationCenter Error Ocurred: \(error)")
             } else {
                 if allow {
+                        self?.delegateAllocate()
                     print("UNUserNotificationCenter authorized")
                 } else {
                     print("UNUserNotificationCenter not authorized")
@@ -46,6 +45,10 @@ final class NotificationController: NSObject, NotificationControllerProtocol {
             }
         }
 
+    }
+    
+    private func delegateAllocate() {
+        unUserNotificationCenter.delegate = self
     }
     
     func isAuthorization(_ completion: @escaping (Bool) -> Void) {
@@ -63,7 +66,7 @@ final class NotificationController: NSObject, NotificationControllerProtocol {
     }
     
     private func notificationCategoriesRegist() {
-        let conformAction = UNNotificationAction(identifier: "ConformAction", title: "확인", options: [])
+        let conformAction = UNNotificationAction(identifier: "ConformAction", title: "확인", options: [.foreground])
         let cancelAction = UNNotificationAction(identifier: "SnoozeAction", title: "끄기", options: [.destructive])
         
         let snoonzeActions = [conformAction, cancelAction]
@@ -90,16 +93,23 @@ final class NotificationController: NSObject, NotificationControllerProtocol {
     
     private func notificationContent(title: String, body: String? = nil, sound: String? = nil, isSnooze: Bool = false) -> UNMutableNotificationContent {
         let notificationContent = UNMutableNotificationContent()
+        var notificationInformation: [AnyHashable: Any] = [:]
         notificationContent.title = title
+        notificationInformation["title"] = title
         if let body {
             notificationContent.body = body
+            notificationInformation["body"] = body
         }
         if let sound {
             notificationContent.sound = UNNotificationSound(named: .init(sound))
+            notificationInformation["sound"] = sound
         } else {
             notificationContent.sound = .default
+            notificationInformation["sound"] = "default.mp3"
         }
         notificationContent.categoryIdentifier = isSnooze ? "SnoozeCategory" : "NonSnoozeCategory"
+        notificationInformation["isSnooze"] = isSnooze
+        notificationContent.userInfo = notificationInformation
         return notificationContent
     }
     
@@ -155,10 +165,19 @@ final class NotificationController: NSObject, NotificationControllerProtocol {
 
 extension NotificationController: UNUserNotificationCenterDelegate {
     func userNotificationCenter(_ center: UNUserNotificationCenter, didReceive response: UNNotificationResponse, withCompletionHandler completionHandler: @escaping () -> Void) {
+        let userInfo = response.notification.request.content.userInfo
+        guard let sound = userInfo["sound"] as? String else {return}
+        audioController.prepare(sound.components(separatedBy: ".")[0])
+        audioController.play()
         completionHandler()
     }
     func userNotificationCenter(_ center: UNUserNotificationCenter, willPresent notification: UNNotification, withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void) {
-        completionHandler([.list, .sound, .banner])
+        let userInfo = notification.request.content.userInfo
+        guard let sound = userInfo["sound"] as? String else {return}
+        audioController.prepare(sound.components(separatedBy: ".")[0])
+        audioController.play()
+        completionHandler([.list, .sound, .banner, .badge])
     }
 }
+        
 

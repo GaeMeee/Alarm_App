@@ -20,6 +20,7 @@ final class AudioController: NSObject {
             print(audioURL)
             audioPlayer = try AVAudioPlayer(contentsOf: audioURL)
             audioPlayer?.prepareToPlay()
+            audioPlayer?.delegate = self
         } catch {
             print(error)
         }
@@ -31,6 +32,11 @@ final class AudioController: NSObject {
     
     func stop() {
         audioPlayer?.stop()
+    }
+    
+    deinit {
+        stop()
+        audioPlayer = nil
     }
 }
 

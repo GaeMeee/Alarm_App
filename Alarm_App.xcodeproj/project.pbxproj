@@ -23,6 +23,7 @@
 		F174F4642AC131E7009AAAB7 /* WorldClock.swift in Sources */ = {isa = PBXBuildFile; fileRef = F174F4632AC131E7009AAAB7 /* WorldClock.swift */; };
 		F174F46A2AC170E7009AAAB7 /* NotificationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F174F4692AC170E7009AAAB7 /* NotificationController.swift */; };
 		F1E76B0D2AC28AAE00C06763 /* AudioController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1E76B0C2AC28AAE00C06763 /* AudioController.swift */; };
+		F1E76B1C2AC2C08D00C06763 /* default.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = F1E76B1B2AC2C08D00C06763 /* default.mp3 */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -45,6 +46,7 @@
 		F174F4692AC170E7009AAAB7 /* NotificationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationController.swift; sourceTree = "<group>"; };
 		F174F46B2AC176D9009AAAB7 /* Alarm_App.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Alarm_App.entitlements; sourceTree = "<group>"; };
 		F1E76B0C2AC28AAE00C06763 /* AudioController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioController.swift; sourceTree = "<group>"; };
+		F1E76B1B2AC2C08D00C06763 /* default.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = default.mp3; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -207,6 +209,7 @@
 			isa = PBXGroup;
 			children = (
 				F1E76B0C2AC28AAE00C06763 /* AudioController.swift */,
+				F1E76B1B2AC2C08D00C06763 /* default.mp3 */,
 			);
 			path = Audio;
 			sourceTree = "<group>";
@@ -271,6 +274,7 @@
 			files = (
 				D679F8182AC11D3A0040E51B /* LaunchScreen.storyboard in Resources */,
 				D679F8152AC11D3A0040E51B /* Assets.xcassets in Resources */,
+				F1E76B1C2AC2C08D00C06763 /* default.mp3 in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
