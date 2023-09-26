@@ -23,6 +23,7 @@ final class NotificationController: NSObject, NotificationControllerProtocol {
     override init() {
         super.init()
         unUserNotificationCenter.delegate = self
+        notificationCategoriesRegist()
     }
     
     func requestAuthorization() {
@@ -55,17 +56,54 @@ final class NotificationController: NSObject, NotificationControllerProtocol {
         }
     }
     
-    private func notificationContent(title: String, body: String? = nil) -> UNMutableNotificationContent {
+    private func notificationCategoriesRegist() {
+        let conformAction = UNNotificationAction(identifier: "ConformAction", title: "확인", options: [])
+        let cancelAction = UNNotificationAction(identifier: "SnoozeAction", title: "끄기", options: [.destructive])
+        
+        let snoonzeActions = [conformAction, cancelAction]
+        let nonSnoozeActions = [conformAction]
+        
+        let snoozeCategory = UNNotificationCategory(
+            identifier: "SnoozeCategory",
+            actions: snoonzeActions,
+            intentIdentifiers: [],
+            hiddenPreviewsBodyPlaceholder: "",
+            options: .customDismissAction
+        )
+        
+        let nonSnoozeAlarmCategroy = UNNotificationCategory(
+            identifier: "NonSnoozeCategory",
+            actions: nonSnoozeActions,
+            intentIdentifiers: [],
+            hiddenPreviewsBodyPlaceholder: "",
+            options: .customDismissAction
+        )
+        
+        unUserNotificationCenter.setNotificationCategories([snoozeCategory, nonSnoozeAlarmCategroy])
+    }
+    
+    private func notificationContent(title: String, body: String? = nil, sound: String? = nil, isSnooze: Bool = false) -> UNMutableNotificationContent {
         let notificationContent = UNMutableNotificationContent()
         notificationContent.title = title
         if let body {
             notificationContent.body = body
         }
+        if let sound {
+            notificationContent.sound = UNNotificationSound(named: .init(sound))
+        } else {
+            notificationContent.sound = .default
+        }
+        notificationContent.categoryIdentifier = isSnooze ? "SnoozeCategory" : "NonSnoozeCategory"
         return notificationContent
     }
     
     func notificationRegist(_ content: Alarm) {
-        let notificationContent = notificationContent(title: content.setTime.hourAndMinute, body: content.content)
+        let notificationContent = notificationContent(
+            title: content.setTime.hourAndMinute,
+            body: content.content,
+            sound: content.notificationSound,
+            isSnooze: content.snoozeEnabled
+        )
         let dateComponents = Calendar.current.dateComponents([.hour, .minute, .second], from: content.setTime)
         let trigger = UNCalendarNotificationTrigger(dateMatching: dateComponents, repeats: false)
         let request = UNNotificationRequest(identifier: "Alarm \(content.setTime.hourAndMinute)", content: notificationContent, trigger: trigger)
