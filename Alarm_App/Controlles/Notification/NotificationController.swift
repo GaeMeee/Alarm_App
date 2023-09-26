@@ -11,7 +11,9 @@ import UserNotifications
 protocol NotificationControllerProtocol {
     func isAuthorization(_ completion: @escaping (Bool) -> Void)
     func requestAuthorization()
-    func notiNext(_ content: Alarm)
+    func notificationRegist(_ content: Alarm)
+    func notificationRemove(_ content: Alarm)
+    func notificationUpdate(_ content: Alarm)
 }
 
 final class NotificationController: NSObject, NotificationControllerProtocol {
@@ -62,12 +64,21 @@ final class NotificationController: NSObject, NotificationControllerProtocol {
         return notificationContent
     }
     
-    func notiNext(_ content: Alarm) {
+    func notificationRegist(_ content: Alarm) {
         let notificationContent = notificationContent(title: content.setTime.hourAndMinute, body: content.content)
         let dateComponents = Calendar.current.dateComponents([.hour, .minute, .second], from: content.setTime)
         let trigger = UNCalendarNotificationTrigger(dateMatching: dateComponents, repeats: false)
-        let request = UNNotificationRequest(identifier: "LocalNoti", content: notificationContent, trigger: trigger)
+        let request = UNNotificationRequest(identifier: "Alarm \(content.setTime.hourAndMinute)", content: notificationContent, trigger: trigger)
         unUserNotificationCenter.add(request)
+    }
+    
+    func notificationRemove(_ content: Alarm) {
+        unUserNotificationCenter.removePendingNotificationRequests(withIdentifiers: ["Alarm \(content.setTime.hourAndMinute)"])
+    }
+    
+    func notificationUpdate(_ content: Alarm) {
+        notificationRemove(content)
+        notificationRegist(content)
     }
 }
 
