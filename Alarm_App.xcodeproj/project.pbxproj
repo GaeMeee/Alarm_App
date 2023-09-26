@@ -20,6 +20,7 @@
 		F174F4602AC131B9009AAAB7 /* StopWatch.swift in Sources */ = {isa = PBXBuildFile; fileRef = F174F45F2AC131B9009AAAB7 /* StopWatch.swift */; };
 		F174F4622AC131D6009AAAB7 /* Alarm.swift in Sources */ = {isa = PBXBuildFile; fileRef = F174F4612AC131D6009AAAB7 /* Alarm.swift */; };
 		F174F4642AC131E7009AAAB7 /* WorldClock.swift in Sources */ = {isa = PBXBuildFile; fileRef = F174F4632AC131E7009AAAB7 /* WorldClock.swift */; };
+		F174F46A2AC170E7009AAAB7 /* NotificationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F174F4692AC170E7009AAAB7 /* NotificationController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -38,6 +39,8 @@
 		F174F45F2AC131B9009AAAB7 /* StopWatch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = StopWatch.swift; path = Alarm_App/Models/StopWatch.swift; sourceTree = SOURCE_ROOT; };
 		F174F4612AC131D6009AAAB7 /* Alarm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Alarm.swift; path = Alarm_App/Models/Alarm.swift; sourceTree = SOURCE_ROOT; };
 		F174F4632AC131E7009AAAB7 /* WorldClock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = WorldClock.swift; path = Alarm_App/Models/WorldClock.swift; sourceTree = SOURCE_ROOT; };
+		F174F4692AC170E7009AAAB7 /* NotificationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationController.swift; sourceTree = "<group>"; };
+		F174F46B2AC176D9009AAAB7 /* Alarm_App.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Alarm_App.entitlements; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -70,6 +73,7 @@
 		D679F80A2AC11D380040E51B /* Alarm_App */ = {
 			isa = PBXGroup;
 			children = (
+				F174F46B2AC176D9009AAAB7 /* Alarm_App.entitlements */,
 				F174F4652AC1333B009AAAB7 /* Models */,
 				D679F80B2AC11D380040E51B /* AppDelegate.swift */,
 				D679F80D2AC11D380040E51B /* SceneDelegate.swift */,
@@ -97,6 +101,7 @@
 		D6AF47A42AC1204700E5C813 /* Controlles */ = {
 			isa = PBXGroup;
 			children = (
+				F174F4682AC170D9009AAAB7 /* Notification  */,
 				D6AF47B02AC1210500E5C813 /* WroldClock */,
 				D6AF47AD2AC120DA00E5C813 /* StopWatch */,
 				D6AF47AA2AC120C800E5C813 /* Timer */,
@@ -176,6 +181,14 @@
 			path = Models;
 			sourceTree = "<group>";
 		};
+		F174F4682AC170D9009AAAB7 /* Notification  */ = {
+			isa = PBXGroup;
+			children = (
+				F174F4692AC170E7009AAAB7 /* NotificationController.swift */,
+			);
+			path = "Notification ";
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -252,6 +265,7 @@
 				D6AF47B82AC122F400E5C813 /* CustomTabBarController.swift in Sources */,
 				D6AF47A82AC120B800E5C813 /* AlarmViewController.swift in Sources */,
 				D679F80C2AC11D380040E51B /* AppDelegate.swift in Sources */,
+				F174F46A2AC170E7009AAAB7 /* NotificationController.swift in Sources */,
 				D6AF47AF2AC120FB00E5C813 /* StopWatchViewController.swift in Sources */,
 				F174F4602AC131B9009AAAB7 /* StopWatch.swift in Sources */,
 				F174F4622AC131D6009AAAB7 /* Alarm.swift in Sources */,
@@ -393,8 +407,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = Alarm_App/Alarm_App.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = KD3GVSQ9P4;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Alarm_App/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -419,8 +435,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = Alarm_App/Alarm_App.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = KD3GVSQ9P4;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Alarm_App/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
