@@ -104,7 +104,7 @@ final class NotificationController: NSObject, NotificationControllerProtocol {
             notificationContent.sound = UNNotificationSound(named: .init(sound))
             notificationInformation["sound"] = sound
         } else {
-            notificationContent.sound = .default
+            notificationContent.sound = UNNotificationSound(named: .init("default.mp3"))
             notificationInformation["sound"] = "default.mp3"
         }
         notificationContent.categoryIdentifier = isSnooze ? "SnoozeCategory" : "NonSnoozeCategory"
@@ -165,10 +165,6 @@ final class NotificationController: NSObject, NotificationControllerProtocol {
 
 extension NotificationController: UNUserNotificationCenterDelegate {
     func userNotificationCenter(_ center: UNUserNotificationCenter, didReceive response: UNNotificationResponse, withCompletionHandler completionHandler: @escaping () -> Void) {
-        let userInfo = response.notification.request.content.userInfo
-        guard let sound = userInfo["sound"] as? String else {return}
-        audioController.prepare(sound.components(separatedBy: ".")[0])
-        audioController.play()
         completionHandler()
     }
     func userNotificationCenter(_ center: UNUserNotificationCenter, willPresent notification: UNNotification, withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void) {
