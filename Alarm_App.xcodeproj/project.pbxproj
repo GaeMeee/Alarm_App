@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		07BAEBF42AC17F3B00FA420B /* TimerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07BAEBF02AC17D1E00FA420B /* TimerView.swift */; };
 		D679F80C2AC11D380040E51B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D679F80B2AC11D380040E51B /* AppDelegate.swift */; };
 		D679F80E2AC11D380040E51B /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D679F80D2AC11D380040E51B /* SceneDelegate.swift */; };
 		D679F8152AC11D3A0040E51B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D679F8142AC11D3A0040E51B /* Assets.xcassets */; };
@@ -23,6 +24,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		07BAEBF02AC17D1E00FA420B /* TimerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = TimerView.swift; path = Timer/TimerView.swift; sourceTree = SOURCE_ROOT; };
 		D679F8082AC11D380040E51B /* Alarm_App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Alarm_App.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D679F80B2AC11D380040E51B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D679F80D2AC11D380040E51B /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -147,6 +149,7 @@
 		D6AF47B42AC1212800E5C813 /* Timer */ = {
 			isa = PBXGroup;
 			children = (
+				07BAEBF02AC17D1E00FA420B /* TimerView.swift */,
 			);
 			path = Timer;
 			sourceTree = "<group>";
@@ -252,6 +255,7 @@
 				D6AF47B82AC122F400E5C813 /* CustomTabBarController.swift in Sources */,
 				D6AF47A82AC120B800E5C813 /* AlarmViewController.swift in Sources */,
 				D679F80C2AC11D380040E51B /* AppDelegate.swift in Sources */,
+				07BAEBF42AC17F3B00FA420B /* TimerView.swift in Sources */,
 				D6AF47AF2AC120FB00E5C813 /* StopWatchViewController.swift in Sources */,
 				F174F4602AC131B9009AAAB7 /* StopWatch.swift in Sources */,
 				F174F4622AC131D6009AAAB7 /* Alarm.swift in Sources */,
