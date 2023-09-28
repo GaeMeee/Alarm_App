@@ -7,9 +7,14 @@
 
 import UIKit
 
+protocol SoundSelectionDelegate: AnyObject {
+    func soundSelected(named soundName: String)
+}
+
 class SoundSelectionViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+    weak var delegate: SoundSelectionDelegate?
     let tableView = UITableView()
-    let sounds = ["전파탐지기(기본)", "공상음", "공지음"]
+    let sounds = ["전파탐지기", "공상음", "공지음", "녹차", "놀이 시간", "느린 상승", "도입음", "물결", "반짝반짝", "반향", "발산", "밤부엉이", "별자리", "상승음", "순환음", "신호", "신호음", "실크", "우주", "일루미네이트", "절정", "정점", "차임벨", "크리스탈", "파장", "프레스토", "해변가", "희망", "클래식"]
     var selectedSoundIndex: Int?
     
     override func viewDidLoad() {
@@ -66,6 +71,9 @@ class SoundSelectionViewController: UIViewController, UITableViewDelegate, UITab
     }
     
     @objc func confirmButtonTapped() {
+        if let index = selectedSoundIndex {
+            NotificationCenter.default.post(name: Notification.Name("SoundSelected"), object: sounds[index])
+        }
         dismiss(animated: true, completion: nil)
     }
 }

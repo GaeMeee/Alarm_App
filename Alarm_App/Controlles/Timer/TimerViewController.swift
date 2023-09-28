@@ -16,9 +16,9 @@ class TimerViewController: UIViewController, UIPickerViewDelegate, UIPickerViewD
         view = timerView
     }
     
-    
     override func viewDidLoad() {
         super.viewDidLoad()
+        NotificationCenter.default.addObserver(self, selector: #selector(soundSelected(_:)), name: Notification.Name("SoundSelected"), object: nil)
         
         timerView.hourPickerView.delegate = self
         timerView.hourPickerView.dataSource = self
@@ -125,6 +125,10 @@ class TimerViewController: UIViewController, UIPickerViewDelegate, UIPickerViewD
         navController.modalPresentationStyle = .overCurrentContext
         present(navController, animated: true, completion: nil)
     }
+
+    @objc func soundSelected(_ notification: Notification) {
+        if let soundName = notification.object as? String {
+            timerView.soundSelectionButton.rightLabel.text = soundName
+        }
+    }
 }
-
-

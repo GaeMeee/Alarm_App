@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		07A288702AC56912006B8E71 /* SoundSelectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07A2886F2AC56912006B8E71 /* SoundSelectionViewController.swift */; };
+		07A288722AC5D593006B8E71 /* DualLabelButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07A288712AC5D593006B8E71 /* DualLabelButton.swift */; };
 		07BAEBF42AC17F3B00FA420B /* TimerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07BAEBF02AC17D1E00FA420B /* TimerView.swift */; };
 		D679F80C2AC11D380040E51B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D679F80B2AC11D380040E51B /* AppDelegate.swift */; };
 		D679F80E2AC11D380040E51B /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D679F80D2AC11D380040E51B /* SceneDelegate.swift */; };
@@ -26,6 +27,7 @@
 
 /* Begin PBXFileReference section */
 		07A2886F2AC56912006B8E71 /* SoundSelectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SoundSelectionViewController.swift; sourceTree = "<group>"; };
+		07A288712AC5D593006B8E71 /* DualLabelButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = DualLabelButton.swift; path = Timer/DualLabelButton.swift; sourceTree = SOURCE_ROOT; };
 		07BAEBF02AC17D1E00FA420B /* TimerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = TimerView.swift; path = Timer/TimerView.swift; sourceTree = SOURCE_ROOT; };
 		D679F8082AC11D380040E51B /* Alarm_App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Alarm_App.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D679F80B2AC11D380040E51B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -153,6 +155,7 @@
 			isa = PBXGroup;
 			children = (
 				07BAEBF02AC17D1E00FA420B /* TimerView.swift */,
+				07A288712AC5D593006B8E71 /* DualLabelButton.swift */,
 			);
 			path = Timer;
 			sourceTree = "<group>";
@@ -252,6 +255,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				07A288722AC5D593006B8E71 /* DualLabelButton.swift in Sources */,
 				07A288702AC56912006B8E71 /* SoundSelectionViewController.swift in Sources */,
 				D6AF47AC2AC120D700E5C813 /* TimerViewController.swift in Sources */,
 				F174F4642AC131E7009AAAB7 /* WorldClock.swift in Sources */,

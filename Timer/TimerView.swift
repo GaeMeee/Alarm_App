@@ -20,7 +20,7 @@ class TimerView: UIView {
     let cancelButton = UIButton()
     let pauseButton = UIButton()
     
-    let soundSelectionButton = UIButton()
+    let soundSelectionButton = DualLabelButton()
     
     let timerLabel = UILabel()
     let timeLabel = UILabel()
@@ -111,7 +111,6 @@ class TimerView: UIView {
         soundSelectionButton.layer.cornerRadius = 25
         soundSelectionButton.contentHorizontalAlignment = .left
         soundSelectionButton.contentEdgeInsets = UIEdgeInsets(top: 0, left: 10, bottom: 0, right: 0)
-        
         
         addSubview(soundSelectionButton)
         soundSelectionButton.translatesAutoresizingMaskIntoConstraints = false
