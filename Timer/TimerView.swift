@@ -106,9 +106,12 @@ class TimerView: UIView {
             pauseButton.heightAnchor.constraint(equalToConstant: buttonSize)
         ])
         
-        soundSelectionButton.setTitle("벨소리 선택", for: .normal)
+        soundSelectionButton.setTitle("타이머 종료 시", for: .normal)
         soundSelectionButton.backgroundColor = .systemGray
         soundSelectionButton.layer.cornerRadius = 25
+        soundSelectionButton.contentHorizontalAlignment = .left
+        soundSelectionButton.contentEdgeInsets = UIEdgeInsets(top: 0, left: 10, bottom: 0, right: 0)
+        
         
         addSubview(soundSelectionButton)
         soundSelectionButton.translatesAutoresizingMaskIntoConstraints = false

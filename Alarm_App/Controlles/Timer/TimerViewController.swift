@@ -16,6 +16,7 @@ class TimerViewController: UIViewController, UIPickerViewDelegate, UIPickerViewD
         view = timerView
     }
     
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -118,5 +119,12 @@ class TimerViewController: UIViewController, UIPickerViewDelegate, UIPickerViewD
         timerView.timeLabel.isHidden = true
     }
     
-    @objc func soundSelectionButtonTapped() {}
+    @objc func soundSelectionButtonTapped() {
+        let soundSelectionVC = SoundSelectionViewController()
+        let navController = UINavigationController(rootViewController: soundSelectionVC)
+        navController.modalPresentationStyle = .overCurrentContext
+        present(navController, animated: true, completion: nil)
+    }
 }
+
+
