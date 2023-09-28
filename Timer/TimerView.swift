@@ -18,6 +18,7 @@ class TimerView: UIView {
     
     let startButton = UIButton()
     let cancelButton = UIButton()
+    let pauseButton = UIButton()
     
     let soundSelectionButton = UIButton()
     
@@ -83,9 +84,14 @@ class TimerView: UIView {
         startButton.clipsToBounds = true
         cancelButton.clipsToBounds = true
         
-        let buttonStackView = UIStackView(arrangedSubviews: [cancelButton, startButton])
+        pauseButton.setTitle("일시정지", for: .normal)
+        pauseButton.backgroundColor = .systemGray
+        pauseButton.layer.cornerRadius = 35
+        pauseButton.isHidden = true
+        
+        let buttonStackView = UIStackView(arrangedSubviews: [cancelButton, startButton, pauseButton])
         buttonStackView.axis = .horizontal
-        buttonStackView.distribution = .fillEqually
+        buttonStackView.distribution = .equalSpacing
         buttonStackView.spacing = 200
         
         addSubview(buttonStackView)
@@ -95,7 +101,9 @@ class TimerView: UIView {
             buttonStackView.centerXAnchor.constraint(equalTo: centerXAnchor),
             buttonStackView.heightAnchor.constraint(equalToConstant: buttonSize),
             startButton.widthAnchor.constraint(equalToConstant: buttonSize),
-            cancelButton.widthAnchor.constraint(equalToConstant: buttonSize)
+            cancelButton.widthAnchor.constraint(equalToConstant: buttonSize),
+            pauseButton.widthAnchor.constraint(equalToConstant: buttonSize),
+            pauseButton.heightAnchor.constraint(equalToConstant: buttonSize)
         ])
         
         soundSelectionButton.setTitle("벨소리 선택", for: .normal)
@@ -114,7 +122,7 @@ class TimerView: UIView {
     
     private func setupTimerLabel() {
         timeLabel.isHidden = true
-        timeLabel.font = .systemFont(ofSize: 20)
+        timeLabel.font = .systemFont(ofSize: 40)
         timeLabel.textAlignment = .center
         addSubview(timeLabel)
         timeLabel.translatesAutoresizingMaskIntoConstraints = false

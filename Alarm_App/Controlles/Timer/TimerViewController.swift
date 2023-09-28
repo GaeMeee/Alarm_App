@@ -29,6 +29,7 @@ class TimerViewController: UIViewController, UIPickerViewDelegate, UIPickerViewD
         timerView.startButton.addTarget(self, action: #selector(startButtonTapped), for: .touchUpInside)
         timerView.cancelButton.addTarget(self, action: #selector(cancelButtonTapped), for: .touchUpInside)
         timerView.soundSelectionButton.addTarget(self, action: #selector(soundSelectionButtonTapped), for: .touchUpInside)
+        timerView.pauseButton.addTarget(self, action: #selector(pauseButtonTapped), for: .touchUpInside)
     }
     
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
@@ -55,6 +56,8 @@ class TimerViewController: UIViewController, UIPickerViewDelegate, UIPickerViewD
         remainingTime = hour * 3600 + minute * 60 + second
         
         if remainingTime > 0 {
+            timerView.startButton.isHidden = true
+            timerView.pauseButton.isHidden = false
             timerView.timeLabel.isHidden = false
             timerView.hourPickerView.isHidden = true
             timerView.minutePickerView.isHidden = true
@@ -78,21 +81,40 @@ class TimerViewController: UIViewController, UIPickerViewDelegate, UIPickerViewD
             let second = remainingTime % 60
             timerView.timeLabel.text = String(format: "%02d:%02d:%02d", hour, minute, second)
         } else {
+            resetTimer()
+        }
+    }
+    
+    @objc func pauseButtonTapped() {
+        if timer != nil {
             timer?.invalidate()
             timer = nil
-            timerView.hourPickerView.isHidden = false
-            timerView.minutePickerView.isHidden = false
-            timerView.secondPickerView.isHidden = false
-            timerView.timeLabel.isHidden = true
+            timerView.pauseButton.setTitle("재개", for: .normal)
+        } else {
+            let hour = remainingTime / 3600
+            let minute = (remainingTime % 3600) / 60
+            let second = remainingTime % 60
+            timerView.timeLabel.text = String(format: "%02d:%02d:%02d", hour, minute, second)
+            timer = Foundation.Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(updateTime), userInfo: nil, repeats: true)
+            timerView.pauseButton.setTitle("일시정지", for: .normal)
         }
     }
     
     @objc func cancelButtonTapped() {
+        resetTimer()
+    }
+    
+    func resetTimer() {
+        timerView.startButton.isHidden = false
+        timerView.pauseButton.isHidden = true
         timer?.invalidate()
         timer = nil
         timerView.hourPickerView.isHidden = false
         timerView.minutePickerView.isHidden = false
         timerView.secondPickerView.isHidden = false
+        timerView.hourLabel.isHidden = false
+        timerView.minuteLabel.isHidden = false
+        timerView.secondLabel.isHidden = false
         timerView.timeLabel.isHidden = true
     }
     
