@@ -11,14 +11,11 @@ class WorldClockViewController: UIViewController {
     
     private let worldView = WorldView()
     
-    let worldDataManager = WorldDataManager.shard
+    private let worldDataManager = WorldDataManager.shard
     
-    var currentSecond: Int = 0
-    var restSecond = 0
-    
+    private var currentSecond: Int = 0
+    private var restSecond = 0
     private var updateTimer: Timer?
-    
-    var stringArray: [String] = []
     
     override func loadView() {
         view = worldView
@@ -26,7 +23,7 @@ class WorldClockViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
+        
         setNav()
         setupTableView()
     }
@@ -59,7 +56,7 @@ class WorldClockViewController: UIViewController {
     }
     
     func updateTableCell(cell: WorldTableViewCell, indexPath: IndexPath) {
-        let worldDateArray = self.worldDataManager.fetchSelectedWorldData(string: self.stringArray)
+        let worldDateArray = self.worldDataManager.selectedDataList
         if indexPath.row < worldDateArray.count {
             let worldData = worldDateArray[indexPath.row]
             cell.cityLabel.text = worldData.location
@@ -75,7 +72,6 @@ class WorldClockViewController: UIViewController {
 extension WorldClockViewController {
     @objc func addButtonTapped() {
         let worldListVC = WorldListViewController(worldDataManager: worldDataManager)
-        //        worldListVC.modalPresentationStyle = .automatic
         worldListVC.delegate = self
         self.present(worldListVC, animated: true)
     }
@@ -87,7 +83,7 @@ extension WorldClockViewController {
 
 extension WorldClockViewController: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return stringArray.count
+        return worldDataManager.selectedWolrdAbbreviation.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -121,7 +117,7 @@ extension WorldClockViewController: UITableViewDataSource, UITableViewDelegate {
 
 extension WorldClockViewController: WorldListVCDelegate {
     func addSelectedWorldData(worldData: WorldClockModel) {
-        stringArray.append(worldData.abbreveiation)
+        worldDataManager.selectedWolrdAbbreviation.append(worldData.abbreveiation)
         worldView.tableView.reloadData()
     }
     func currentSecondInt(int: Int) {

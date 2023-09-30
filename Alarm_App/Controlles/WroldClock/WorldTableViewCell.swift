@@ -11,12 +11,6 @@ class WorldTableViewCell: UITableViewCell {
     
     static let identify: String = "worldCell"
     
-//    lazy var differenceLabel: UILabel = {
-//       let label = UILabel()
-//
-//        return label
-//    }()
-    
     lazy var cityLabel: UILabel = {
        let label = UILabel()
         label.textColor = .white
@@ -35,14 +29,11 @@ class WorldTableViewCell: UITableViewCell {
 
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
-        
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
 
-        // Configure the view for the selected state
         setupUI()
     }
 }

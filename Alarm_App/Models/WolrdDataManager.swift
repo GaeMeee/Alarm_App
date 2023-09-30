@@ -14,6 +14,7 @@ class WorldDataManager {
         getWorldList()
     }
     var selectedWolrdAbbreviation: [String] = []
+    
     var selectedDataList: [WorldClockModel] {
         fetchSelectedWorldData(string: selectedWolrdAbbreviation)
     }

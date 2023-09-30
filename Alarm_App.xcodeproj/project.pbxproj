@@ -80,10 +80,10 @@
 		D679F80A2AC11D380040E51B /* Alarm_App */ = {
 			isa = PBXGroup;
 			children = (
-				F174F4652AC1333B009AAAB7 /* Models */,
 				D679F80B2AC11D380040E51B /* AppDelegate.swift */,
 				D679F80D2AC11D380040E51B /* SceneDelegate.swift */,
 				D6AF47B72AC122F400E5C813 /* CustomTabBarController.swift */,
+				F174F4652AC1333B009AAAB7 /* Models */,
 				D6AF47A42AC1204700E5C813 /* Controlles */,
 				D6AF47A32AC1204300E5C813 /* View */,
 				D679F8142AC11D3A0040E51B /* Assets.xcassets */,

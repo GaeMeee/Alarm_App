@@ -16,7 +16,7 @@ class WorldListViewController: UIViewController {
     
     weak var delegate: WorldListVCDelegate?
     
-    let worldDataManager: WorldDataManager
+    private let worldDataManager: WorldDataManager
     
     private let worldListView = WorldListView()
     
@@ -36,8 +36,16 @@ class WorldListViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        setupTableView()
+        setupButtonAction()
+    }
+    
+    private func setupTableView() {
         worldListView.tableView.dataSource = self
         worldListView.tableView.delegate = self
+    }
+    
+    private func setupButtonAction() {
         worldListView.cancelButton.addTarget(self, action: #selector(cancelButtonTapped), for: .touchUpInside)
     }
 }
@@ -51,12 +59,12 @@ extension WorldListViewController {
 extension WorldListViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return worldDataManager.getWorldList().count
+        return worldDataManager.worldDataList.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = UITableViewCell()
-        let worldData = worldDataManager.getWorldList()[indexPath.row]
+        let worldData = worldDataManager.worldDataList[indexPath.row]
         
         cell.textLabel?.text = worldData.location
         cell.textLabel?.textColor = .white
@@ -67,7 +75,7 @@ extension WorldListViewController: UITableViewDataSource {
 
 extension WorldListViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let selectedData = worldDataManager.getWorldList()[indexPath.row]
+        let selectedData = worldDataManager.worldDataList[indexPath.row]
         delegate?.addSelectedWorldData(worldData: selectedData)
         delegate?.currentSecondInt(int: Calendar.current.component(.second, from: Date()))
         dismiss(animated: true)
