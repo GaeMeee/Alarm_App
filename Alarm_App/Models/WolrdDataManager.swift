@@ -59,7 +59,9 @@ class WorldDataManager {
             
             var date = regionName.split(separator: " ")
             let _ = date.popLast()
+            
             regionName = date.joined(separator: " ")
+            
             let dateFormatter = DateFormatter()
             dateFormatter.timeZone = timezone
             dateFormatter.dateFormat = "HH:mm"
@@ -69,5 +71,18 @@ class WorldDataManager {
             dates.append(selectedDate)
         }
         return dates
+    }
+    
+    func getTimeDifference(fromAbbreviation abbreviation: String) -> TimeInterval? {
+        guard let seoulTimeZone = TimeZone(identifier: "Asia/Seoul"),
+              let selectedTimeZone = TimeZone(identifier: abbreviation) else {
+            return nil
+        }
+
+        let currentTime = Date()
+        let seoulOffset = seoulTimeZone.secondsFromGMT(for: currentTime)
+        let selectedOffset = selectedTimeZone.secondsFromGMT(for: currentTime)
+
+        return TimeInterval(selectedOffset - seoulOffset)
     }
 }

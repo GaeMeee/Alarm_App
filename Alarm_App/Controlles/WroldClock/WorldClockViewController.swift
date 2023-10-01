@@ -61,9 +61,42 @@ class WorldClockViewController: UIViewController {
             let worldData = worldDateArray[indexPath.row]
             cell.cityLabel.text = worldData.location
             cell.currentTimeLabel.text = worldData.currentTime
+            
+            let seoulTimeZone = TimeZone(identifier: "Asia/Seoul")!
+            
+            let selectedTimeZone = TimeZone(identifier: worldData.abbreveiation)
+            
+            if let selectedTimeZone = selectedTimeZone {
+                let currentTime = Date()
+                let seoulOffset = seoulTimeZone.secondsFromGMT(for: currentTime)
+                let selectedOffset = selectedTimeZone.secondsFromGMT(for: currentTime)
+                let timeDifferenceInHours = (selectedOffset - seoulOffset) / 3600
+                
+                var timeDifferenceType: String
+                if timeDifferenceInHours == 0 {
+                    timeDifferenceType = "0시간"
+                } else {
+                    let sign = timeDifferenceInHours > 0 ? "+" : "-"
+                    let hours = abs(timeDifferenceInHours)
+                    timeDifferenceType = "\(sign)\(hours)시간"
+                }
+                
+                if Calendar.current.isDate(currentTime, inSameDayAs: currentTime.addingTimeInterval(TimeInterval(timeDifferenceInHours * 3600))) {
+                    timeDifferenceType = "오늘, " + timeDifferenceType
+                } else if Calendar.current.isDate(currentTime.addingTimeInterval(86400), inSameDayAs: currentTime.addingTimeInterval(TimeInterval(timeDifferenceInHours * 3600))) {
+                    timeDifferenceType = "내일, " + timeDifferenceType
+                } else if Calendar.current.isDate(currentTime.addingTimeInterval(-86400), inSameDayAs: currentTime.addingTimeInterval(TimeInterval(timeDifferenceInHours * 3600))) {
+                    timeDifferenceType = "어제, " + timeDifferenceType
+                }
+                
+                cell.timeDifferenceLabel.text = timeDifferenceType
+            } else {
+                cell.timeDifferenceLabel.text = "N/A"
+            }
         } else {
             cell.cityLabel.text = "N/A"
             cell.currentTimeLabel.text = "N/A"
+            cell.timeDifferenceLabel.text = "N/A"
         }
     }
 }
@@ -110,7 +143,7 @@ extension WorldClockViewController: UITableViewDataSource, UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 100
+        return 80
     }
 }
 

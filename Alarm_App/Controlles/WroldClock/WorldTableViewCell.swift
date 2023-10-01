@@ -14,7 +14,15 @@ class WorldTableViewCell: UITableViewCell {
     lazy var cityLabel: UILabel = {
        let label = UILabel()
         label.textColor = .white
-        label.font = UIFont.systemFont(ofSize: 20)
+        label.font = UIFont.systemFont(ofSize: 28)
+        label.translatesAutoresizingMaskIntoConstraints = false
+        return label
+    }()
+    
+    lazy var timeDifferenceLabel: UILabel = {
+        let label = UILabel()
+        label.textColor = .systemGray2
+        label.font = UIFont.systemFont(ofSize: 16)
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
@@ -22,7 +30,7 @@ class WorldTableViewCell: UITableViewCell {
     lazy var currentTimeLabel: UILabel = {
         let label = UILabel()
         label.textColor = .white
-        label.font = UIFont.systemFont(ofSize: 30)
+        label.font = UIFont.systemFont(ofSize: 50, weight: .thin)
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
@@ -42,6 +50,7 @@ private extension WorldTableViewCell {
     func setupUI() {
         setupCityLabel()
         setupCurrentTimeLabel()
+        setupTimeDifferenceLabel()
     }
     
     func setupCityLabel() {
@@ -49,8 +58,8 @@ private extension WorldTableViewCell {
         
         NSLayoutConstraint.activate([
             cityLabel.centerYAnchor.constraint(equalTo: contentView.centerYAnchor),
-            cityLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor),
-            cityLabel.trailingAnchor.constraint(equalTo: contentView.centerXAnchor, constant: 10),
+            cityLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 10),
+            cityLabel.widthAnchor.constraint(equalToConstant: 220),
             cityLabel.heightAnchor.constraint(equalToConstant: 30)
         ])
     }
@@ -59,10 +68,21 @@ private extension WorldTableViewCell {
         contentView.addSubview(currentTimeLabel)
         
         NSLayoutConstraint.activate([
-            currentTimeLabel.leadingAnchor.constraint(equalTo: cityLabel.trailingAnchor),
             currentTimeLabel.centerYAnchor.constraint(equalTo: contentView.centerYAnchor),
-            currentTimeLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor),
-            currentTimeLabel.heightAnchor.constraint(equalToConstant: 34)
+            currentTimeLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -10),
+            currentTimeLabel.widthAnchor.constraint(equalToConstant: 120),
+            currentTimeLabel.heightAnchor.constraint(equalToConstant: 52)
+        ])
+    }
+    
+    func setupTimeDifferenceLabel() {
+        contentView.addSubview(timeDifferenceLabel)
+        
+        NSLayoutConstraint.activate([
+            timeDifferenceLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 10),
+            timeDifferenceLabel.bottomAnchor.constraint(equalTo: cityLabel.topAnchor),
+            timeDifferenceLabel.widthAnchor.constraint(equalToConstant: 120),
+            timeDifferenceLabel.heightAnchor.constraint(equalToConstant: 30)
         ])
     }
 }
