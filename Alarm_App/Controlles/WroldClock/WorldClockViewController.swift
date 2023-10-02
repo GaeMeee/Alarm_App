@@ -145,6 +145,20 @@ extension WorldClockViewController: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 80
     }
+    
+    func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
+        let deleteAction = UIContextualAction(style: .destructive, title: "삭제") { [weak self] (_, _, completionHandler) in
+            self?.worldDataManager.deleteSelectedWorld(index: indexPath.row)
+            
+            tableView.deleteRows(at: [indexPath], with: .automatic)
+            
+            completionHandler(true)
+        }
+        
+        let swipeConfig = UISwipeActionsConfiguration(actions: [deleteAction])
+        
+        return swipeConfig
+    }
 }
 
 

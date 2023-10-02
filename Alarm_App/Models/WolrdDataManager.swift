@@ -78,11 +78,17 @@ class WorldDataManager {
               let selectedTimeZone = TimeZone(identifier: abbreviation) else {
             return nil
         }
-
+        
         let currentTime = Date()
         let seoulOffset = seoulTimeZone.secondsFromGMT(for: currentTime)
         let selectedOffset = selectedTimeZone.secondsFromGMT(for: currentTime)
-
+        
         return TimeInterval(selectedOffset - seoulOffset)
+    }
+    
+    func deleteSelectedWorld(index: Int) {
+        if index < self.selectedDataList.count {
+            self.selectedWolrdAbbreviation.remove(at: index)
+        }
     }
 }

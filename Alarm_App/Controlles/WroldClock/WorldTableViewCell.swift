@@ -70,7 +70,7 @@ private extension WorldTableViewCell {
         NSLayoutConstraint.activate([
             currentTimeLabel.centerYAnchor.constraint(equalTo: contentView.centerYAnchor),
             currentTimeLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -10),
-            currentTimeLabel.widthAnchor.constraint(equalToConstant: 120),
+            currentTimeLabel.widthAnchor.constraint(equalToConstant: 130),
             currentTimeLabel.heightAnchor.constraint(equalToConstant: 52)
         ])
     }
@@ -81,7 +81,7 @@ private extension WorldTableViewCell {
         NSLayoutConstraint.activate([
             timeDifferenceLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 10),
             timeDifferenceLabel.bottomAnchor.constraint(equalTo: cityLabel.topAnchor),
-            timeDifferenceLabel.widthAnchor.constraint(equalToConstant: 120),
+            timeDifferenceLabel.widthAnchor.constraint(equalToConstant: 100),
             timeDifferenceLabel.heightAnchor.constraint(equalToConstant: 30)
         ])
     }
