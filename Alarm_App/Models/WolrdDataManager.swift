@@ -10,17 +10,17 @@ import Foundation
 class WorldDataManager {
     static let shard = WorldDataManager()
     
-    var worldDataList: [WorldClockModel] {
+    var worldDataList: [WorldClock] {
         getWorldList()
     }
     var selectedWolrdAbbreviation: [String] = []
     
-    var selectedDataList: [WorldClockModel] {
+    var selectedDataList: [WorldClock] {
         fetchSelectedWorldData(string: selectedWolrdAbbreviation)
     }
     
-    func getWorldList() -> [WorldClockModel] {
-        var worldList: [WorldClockModel] = []
+    func getWorldList() -> [WorldClock] {
+        var worldList: [WorldClock] = []
         
         for tz in TimeZone.knownTimeZoneIdentifiers {
             guard let timezone = TimeZone(identifier: tz) else { continue }
@@ -38,7 +38,7 @@ class WorldDataManager {
             
             let currentTime = dateFormatter.string(from: Date())
             
-            worldList.append(WorldClockModel(location: regionName, currentTime: currentTime, abbreveiation: tz))
+            worldList.append(WorldClock(location: regionName, currentTime: currentTime, abbreveiation: tz))
         }
         
         worldList.sort { $0.location < $1.location }
@@ -50,8 +50,8 @@ class WorldDataManager {
         selectedWolrdAbbreviation.append(abbreviationString)
     }
     
-    func fetchSelectedWorldData(string: [String]) -> [WorldClockModel] {
-        var dates: [WorldClockModel] = []
+    func fetchSelectedWorldData(string: [String]) -> [WorldClock] {
+        var dates: [WorldClock] = []
         for tz in string {
             guard let timezone = TimeZone(identifier: tz) else {continue}
             
@@ -66,7 +66,7 @@ class WorldDataManager {
             dateFormatter.timeZone = timezone
             dateFormatter.dateFormat = "HH:mm"
             
-            let selectedDate = WorldClockModel(location: regionName, currentTime: dateFormatter.string(from: Date()), abbreveiation: tz)
+            let selectedDate = WorldClock(location: regionName, currentTime: dateFormatter.string(from: Date()), abbreveiation: tz)
             
             dates.append(selectedDate)
         }
