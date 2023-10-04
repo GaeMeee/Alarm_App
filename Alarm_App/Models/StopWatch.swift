@@ -1,13 +1,8 @@
-//
-//  StopWatch.swift
-//  Alarm_App
-//
-//  Created by hong on 2023/09/25.
+//import Foundation
 //
 
-import Foundation
+//struct StopwatchModel {
+//    var timeElapsed: Int = 0
+//    var lapTimes: [Int] = []
+//}
 
-struct Stopwatch: Codable {
-    var timeElapsed: Int // 단위: 초 (경과 시간)
-    var lapTimes: [Int] // 단위: 초 
-}
