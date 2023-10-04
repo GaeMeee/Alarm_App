@@ -7,6 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		D679F6492AC14CAA00566BB8 /* WorldView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D679F6482AC14CAA00566BB8 /* WorldView.swift */; };
+		D679F64D2AC167E700566BB8 /* WolrdDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D679F64C2AC167E700566BB8 /* WolrdDataManager.swift */; };
+		D679F64F2AC16C3400566BB8 /* WorldTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D679F64E2AC16C3300566BB8 /* WorldTableViewCell.swift */; };
+		D679F6512AC16F5000566BB8 /* WorldListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D679F6502AC16F5000566BB8 /* WorldListViewController.swift */; };
+		D679F6532AC1968900566BB8 /* WorldListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D679F6522AC1968900566BB8 /* WorldListView.swift */; };
 		D679F80C2AC11D380040E51B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D679F80B2AC11D380040E51B /* AppDelegate.swift */; };
 		D679F80E2AC11D380040E51B /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D679F80D2AC11D380040E51B /* SceneDelegate.swift */; };
 		D679F8152AC11D3A0040E51B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D679F8142AC11D3A0040E51B /* Assets.xcassets */; };
@@ -23,6 +28,11 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		D679F6482AC14CAA00566BB8 /* WorldView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorldView.swift; sourceTree = "<group>"; };
+		D679F64C2AC167E700566BB8 /* WolrdDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WolrdDataManager.swift; sourceTree = "<group>"; };
+		D679F64E2AC16C3300566BB8 /* WorldTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorldTableViewCell.swift; sourceTree = "<group>"; };
+		D679F6502AC16F5000566BB8 /* WorldListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorldListViewController.swift; sourceTree = "<group>"; };
+		D679F6522AC1968900566BB8 /* WorldListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorldListView.swift; sourceTree = "<group>"; };
 		D679F8082AC11D380040E51B /* Alarm_App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Alarm_App.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D679F80B2AC11D380040E51B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D679F80D2AC11D380040E51B /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -77,11 +87,14 @@
 		D679F80A2AC11D380040E51B /* Alarm_App */ = {
 			isa = PBXGroup;
 			children = (
+
 				7D4770B92AC1B6370008C95E /* View */,
 				F174F4652AC1333B009AAAB7 /* Models */,
+
 				D679F80B2AC11D380040E51B /* AppDelegate.swift */,
 				D679F80D2AC11D380040E51B /* SceneDelegate.swift */,
 				D6AF47B72AC122F400E5C813 /* CustomTabBarController.swift */,
+				F174F4652AC1333B009AAAB7 /* Models */,
 				D6AF47A42AC1204700E5C813 /* Controlles */,
 				D679F8142AC11D3A0040E51B /* Assets.xcassets */,
 				D679F8162AC11D3A0040E51B /* LaunchScreen.storyboard */,
@@ -129,10 +142,44 @@
 			isa = PBXGroup;
 			children = (
 				D6AF47B12AC1211A00E5C813 /* WorldClockViewController.swift */,
+				D679F64E2AC16C3300566BB8 /* WorldTableViewCell.swift */,
+				D679F6502AC16F5000566BB8 /* WorldListViewController.swift */,
 			);
 			path = WroldClock;
 			sourceTree = "<group>";
 		};
+
+		D6AF47B32AC1212100E5C813 /* Alarm */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Alarm;
+			sourceTree = "<group>";
+		};
+		D6AF47B42AC1212800E5C813 /* Timer */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Timer;
+			sourceTree = "<group>";
+		};
+		D6AF47B52AC1212E00E5C813 /* StopWatch */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = StopWatch;
+			sourceTree = "<group>";
+		};
+		D6AF47B62AC1214A00E5C813 /* WroldClock */ = {
+			isa = PBXGroup;
+			children = (
+				D679F6482AC14CAA00566BB8 /* WorldView.swift */,
+				D679F6522AC1968900566BB8 /* WorldListView.swift */,
+			);
+			path = WroldClock;
+			sourceTree = "<group>";
+		};
+
 		F174F4652AC1333B009AAAB7 /* Models */ = {
 			isa = PBXGroup;
 			children = (
@@ -140,6 +187,7 @@
 				F174F45F2AC131B9009AAAB7 /* StopWatch.swift */,
 				F174F4612AC131D6009AAAB7 /* Alarm.swift */,
 				F174F4632AC131E7009AAAB7 /* WorldClock.swift */,
+				D679F64C2AC167E700566BB8 /* WolrdDataManager.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -214,15 +262,20 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D679F64F2AC16C3400566BB8 /* WorldTableViewCell.swift in Sources */,
 				D6AF47AC2AC120D700E5C813 /* TimerViewController.swift in Sources */,
+				D679F6512AC16F5000566BB8 /* WorldListViewController.swift in Sources */,
 				F174F4642AC131E7009AAAB7 /* WorldClock.swift in Sources */,
 				D6AF47B22AC1211A00E5C813 /* WorldClockViewController.swift in Sources */,
 				D6AF47B82AC122F400E5C813 /* CustomTabBarController.swift in Sources */,
 				D6AF47A82AC120B800E5C813 /* AlarmViewController.swift in Sources */,
+				D679F6492AC14CAA00566BB8 /* WorldView.swift in Sources */,
 				D679F80C2AC11D380040E51B /* AppDelegate.swift in Sources */,
 				D6AF47AF2AC120FB00E5C813 /* StopWatchViewController.swift in Sources */,
 				F174F4602AC131B9009AAAB7 /* StopWatch.swift in Sources */,
+				D679F64D2AC167E700566BB8 /* WolrdDataManager.swift in Sources */,
 				F174F4622AC131D6009AAAB7 /* Alarm.swift in Sources */,
+				D679F6532AC1968900566BB8 /* WorldListView.swift in Sources */,
 				D679F80E2AC11D380040E51B /* SceneDelegate.swift in Sources */,
 				F174F45E2AC131A7009AAAB7 /* Timer.swift in Sources */,
 			);
