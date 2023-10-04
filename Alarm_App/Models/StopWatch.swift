@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct StopwatchModel: Codable {
+struct Stopwatch: Codable {
     var timeElapsed: Int // 단위: 초 (경과 시간)
     var lapTimes: [Int] // 단위: 초 
 }
