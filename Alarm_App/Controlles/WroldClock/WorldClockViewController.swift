@@ -158,7 +158,7 @@ extension WorldClockViewController: UITableViewDataSource, UITableViewDelegate {
 
 
 extension WorldClockViewController: WorldListVCDelegate {
-    func addSelectedWorldData(worldData: WorldClockModel) {
+    func addSelectedWorldData(worldData: WorldClock) {
         worldDataManager.selectedWolrdAbbreviation.append(worldData.abbreveiation)
         worldView.tableView.reloadData()
     }

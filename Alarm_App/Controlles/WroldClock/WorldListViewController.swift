@@ -8,7 +8,7 @@
 import UIKit
 
 protocol WorldListVCDelegate: AnyObject {
-    func addSelectedWorldData(worldData: WorldClockModel)
+    func addSelectedWorldData(worldData: WorldClock)
     func currentSecondInt(int: Int)
 }
 
