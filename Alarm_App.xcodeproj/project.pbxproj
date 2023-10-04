@@ -13,6 +13,8 @@
 		07A288792AC9FF68006B8E71 /* AVFAudio.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 07A288782AC9FF68006B8E71 /* AVFAudio.framework */; };
 		07A2887E2ACD0BB4006B8E71 /* 전파탐지기.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 07A2887C2ACD0BB4006B8E71 /* 전파탐지기.mp3 */; };
 		07A2887F2ACD0BB4006B8E71 /* Contents.json in Resources */ = {isa = PBXBuildFile; fileRef = 07A2887D2ACD0BB4006B8E71 /* Contents.json */; };
+		07A288822ACD1989006B8E71 /* 도입음.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 07A288812ACD1989006B8E71 /* 도입음.mp3 */; };
+		07A288842ACD1A82006B8E71 /* 프레스토.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 07A288832ACD1A82006B8E71 /* 프레스토.mp3 */; };
 		07BAEBF42AC17F3B00FA420B /* TimerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07BAEBF02AC17D1E00FA420B /* TimerView.swift */; };
 		D679F80C2AC11D380040E51B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D679F80B2AC11D380040E51B /* AppDelegate.swift */; };
 		D679F80E2AC11D380040E51B /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D679F80D2AC11D380040E51B /* SceneDelegate.swift */; };
@@ -36,6 +38,8 @@
 		07A288782AC9FF68006B8E71 /* AVFAudio.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFAudio.framework; path = System/Library/Frameworks/AVFAudio.framework; sourceTree = SDKROOT; };
 		07A2887C2ACD0BB4006B8E71 /* 전파탐지기.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "전파탐지기.mp3"; sourceTree = "<group>"; };
 		07A2887D2ACD0BB4006B8E71 /* Contents.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Contents.json; sourceTree = "<group>"; };
+		07A288812ACD1989006B8E71 /* 도입음.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "도입음.mp3"; sourceTree = "<group>"; };
+		07A288832ACD1A82006B8E71 /* 프레스토.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "프레스토.mp3"; sourceTree = "<group>"; };
 		07BAEBF02AC17D1E00FA420B /* TimerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = TimerView.swift; path = Timer/TimerView.swift; sourceTree = SOURCE_ROOT; };
 		D679F8082AC11D380040E51B /* Alarm_App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Alarm_App.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D679F80B2AC11D380040E51B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -79,6 +83,8 @@
 		07A2887A2ACD0B08006B8E71 /* Sounds */ = {
 			isa = PBXGroup;
 			children = (
+				07A288832ACD1A82006B8E71 /* 프레스토.mp3 */,
+				07A288802ACD1966006B8E71 /* 도입음.dataset */,
 				07A2887B2ACD0BB4006B8E71 /* 전파탐지기.dataset */,
 			);
 			path = Sounds;
@@ -91,6 +97,15 @@
 				07A2887D2ACD0BB4006B8E71 /* Contents.json */,
 			);
 			path = "전파탐지기.dataset";
+			sourceTree = "<group>";
+		};
+		07A288802ACD1966006B8E71 /* 도입음.dataset */ = {
+			isa = PBXGroup;
+			children = (
+				07A288812ACD1989006B8E71 /* 도입음.mp3 */,
+			);
+			name = "도입음.dataset";
+			path = "도입음.dataset";
 			sourceTree = "<group>";
 		};
 		D679F7FF2AC11D380040E51B = {
@@ -282,6 +297,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				D679F8182AC11D3A0040E51B /* LaunchScreen.storyboard in Resources */,
+				07A288842ACD1A82006B8E71 /* 프레스토.mp3 in Resources */,
+				07A288822ACD1989006B8E71 /* 도입음.mp3 in Resources */,
 				07A2887E2ACD0BB4006B8E71 /* 전파탐지기.mp3 in Resources */,
 				D679F8152AC11D3A0040E51B /* Assets.xcassets in Resources */,
 				07A2887F2ACD0BB4006B8E71 /* Contents.json in Resources */,
