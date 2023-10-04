@@ -6,11 +6,14 @@
 //
 
 import UIKit
+import AVFoundation
 
 class TimerViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource {
     let timerView = TimerView()
     var timer: Foundation.Timer?
     var remainingTime: Int = 0
+    var selectedSoundName: String?
+    var audioPlayer: AVAudioPlayer?
     
     override func loadView() {
         view = timerView
@@ -31,6 +34,16 @@ class TimerViewController: UIViewController, UIPickerViewDelegate, UIPickerViewD
         timerView.cancelButton.addTarget(self, action: #selector(cancelButtonTapped), for: .touchUpInside)
         timerView.soundSelectionButton.addTarget(self, action: #selector(soundSelectionButtonTapped), for: .touchUpInside)
         timerView.pauseButton.addTarget(self, action: #selector(pauseButtonTapped), for: .touchUpInside)
+        setupAudioSession()
+    }
+    
+    func setupAudioSession() {
+        do {
+            try AVAudioSession.sharedInstance().setCategory(.playback, mode: .default)
+            try AVAudioSession.sharedInstance().setActive(true)
+        } catch {
+            print("Error setting up audio session: \(error.localizedDescription)")
+        }
     }
     
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
@@ -71,9 +84,38 @@ class TimerViewController: UIViewController, UIPickerViewDelegate, UIPickerViewD
             
             timer?.invalidate()
             timer = Foundation.Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(updateTime), userInfo: nil, repeats: true)
+            RunLoop.current.add(timer!, forMode: .common)
         }
     }
-    
+    @objc func soundSelected(_ notification: Notification) {
+        if let soundName = notification.object as? String {
+            print("Sound Selected: \(soundName)")
+            timerView.soundSelectionButton.rightLabel.text = soundName
+            selectedSoundName = soundName
+        }
+    }
+    func playSound() {
+        guard let soundName = selectedSoundName,
+              let url = Bundle.main.url(forResource: soundName, withExtension: "mp3") else {
+            print("Error: Selected sound name not found or invalid")
+            return
+        }
+
+        do {
+            audioPlayer = try AVAudioPlayer(contentsOf: url)
+            audioPlayer?.prepareToPlay()
+            audioPlayer?.play()
+        } catch {
+            print("Error playing the audio file: \(error.localizedDescription)")
+        }
+    }
+
+
+    func timerFinished() {
+        playSound()
+    }
+
+
     @objc func updateTime() {
         if remainingTime > 0 {
             remainingTime -= 1
@@ -82,7 +124,9 @@ class TimerViewController: UIViewController, UIPickerViewDelegate, UIPickerViewD
             let second = remainingTime % 60
             timerView.timeLabel.text = String(format: "%02d:%02d:%02d", hour, minute, second)
         } else {
+            print("Timer Finished")
             resetTimer()
+            playSound()
         }
     }
     
@@ -121,14 +165,16 @@ class TimerViewController: UIViewController, UIPickerViewDelegate, UIPickerViewD
     
     @objc func soundSelectionButtonTapped() {
         let soundSelectionVC = SoundSelectionViewController()
+        soundSelectionVC.delegate = self
         let navController = UINavigationController(rootViewController: soundSelectionVC)
         navController.modalPresentationStyle = .overCurrentContext
         present(navController, animated: true, completion: nil)
     }
+}
 
-    @objc func soundSelected(_ notification: Notification) {
-        if let soundName = notification.object as? String {
-            timerView.soundSelectionButton.rightLabel.text = soundName
-        }
+extension TimerViewController: SoundSelectionDelegate {
+    func soundSelected(named soundName: String) {
+        selectedSoundName = soundName
+        timerView.soundSelectionButton.rightLabel.text = soundName
     }
 }

@@ -4,7 +4,8 @@
 //
 //  Created by 김도윤 on 2023/09/28.
 //
-
+//
+import AVFoundation
 import UIKit
 
 protocol SoundSelectionDelegate: AnyObject {
@@ -16,6 +17,7 @@ class SoundSelectionViewController: UIViewController, UITableViewDelegate, UITab
     let tableView = UITableView()
     let sounds = ["전파탐지기", "공상음", "공지음", "녹차", "놀이 시간", "느린 상승", "도입음", "물결", "반짝반짝", "반향", "발산", "밤부엉이", "별자리", "상승음", "순환음", "신호", "신호음", "실크", "우주", "일루미네이트", "절정", "정점", "차임벨", "크리스탈", "파장", "프레스토", "해변가", "희망", "클래식"]
     var selectedSoundIndex: Int?
+    var audioPlayer: AVAudioPlayer?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -61,19 +63,35 @@ class SoundSelectionViewController: UIViewController, UITableViewDelegate, UITab
         return cell
     }
     
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        selectedSoundIndex = indexPath.row
-        tableView.reloadData()
-    }
-    
     @objc func cancelButtonTapped() {
         dismiss(animated: true, completion: nil)
     }
     
     @objc func confirmButtonTapped() {
         if let index = selectedSoundIndex {
-            NotificationCenter.default.post(name: Notification.Name("SoundSelected"), object: sounds[index])
+            let soundNameWithoutExtension = sounds[index].replacingOccurrences(of: ".mp3", with: "")
+            NotificationCenter.default.post(name: Notification.Name("SoundSelected"), object: soundNameWithoutExtension)
+            delegate?.soundSelected(named: soundNameWithoutExtension)
         }
+        audioPlayer?.stop()
         dismiss(animated: true, completion: nil)
+    }
+
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        selectedSoundIndex = indexPath.row
+        tableView.reloadData()
+        
+        audioPlayer?.stop()
+        
+        let soundName = sounds[indexPath.row]
+        guard let url = Bundle.main.url(forResource: soundName, withExtension: "mp3") else { return }
+        
+        do {
+            audioPlayer = try AVAudioPlayer(contentsOf: url)
+            audioPlayer?.play()
+        } catch {
+            print("Error: \(error.localizedDescription)")
+        }
     }
 }

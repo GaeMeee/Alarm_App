@@ -5,6 +5,7 @@
 //  Created by 김도윤 on 2023/09/25.
 //
 
+import AVFoundation
 import UIKit
 
 class TimerView: UIView {
