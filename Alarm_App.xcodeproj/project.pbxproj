@@ -25,6 +25,10 @@
 		F174F4602AC131B9009AAAB7 /* StopWatch.swift in Sources */ = {isa = PBXBuildFile; fileRef = F174F45F2AC131B9009AAAB7 /* StopWatch.swift */; };
 		F174F4622AC131D6009AAAB7 /* Alarm.swift in Sources */ = {isa = PBXBuildFile; fileRef = F174F4612AC131D6009AAAB7 /* Alarm.swift */; };
 		F174F4642AC131E7009AAAB7 /* WorldClock.swift in Sources */ = {isa = PBXBuildFile; fileRef = F174F4632AC131E7009AAAB7 /* WorldClock.swift */; };
+		F1D2EC5C2ACD4773008A8D7B /* AddAlarmController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1D2EC5B2ACD4773008A8D7B /* AddAlarmController.swift */; };
+		F1D2EC5E2ACD4796008A8D7B /* AlarmCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1D2EC5D2ACD4796008A8D7B /* AlarmCell.swift */; };
+		F1D2EC602ACD47AD008A8D7B /* UNUserNotificationCenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1D2EC5F2ACD47AD008A8D7B /* UNUserNotificationCenter.swift */; };
+		F1D2EC632ACD481A008A8D7B /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = F1D2EC622ACD481A008A8D7B /* SnapKit */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -48,6 +52,9 @@
 		F174F45F2AC131B9009AAAB7 /* StopWatch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = StopWatch.swift; path = Alarm_App/Models/StopWatch.swift; sourceTree = SOURCE_ROOT; };
 		F174F4612AC131D6009AAAB7 /* Alarm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Alarm.swift; path = Alarm_App/Models/Alarm.swift; sourceTree = SOURCE_ROOT; };
 		F174F4632AC131E7009AAAB7 /* WorldClock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = WorldClock.swift; path = Alarm_App/Models/WorldClock.swift; sourceTree = SOURCE_ROOT; };
+		F1D2EC5B2ACD4773008A8D7B /* AddAlarmController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddAlarmController.swift; sourceTree = "<group>"; };
+		F1D2EC5D2ACD4796008A8D7B /* AlarmCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlarmCell.swift; sourceTree = "<group>"; };
+		F1D2EC5F2ACD47AD008A8D7B /* UNUserNotificationCenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UNUserNotificationCenter.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -55,20 +62,13 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F1D2EC632ACD481A008A8D7B /* SnapKit in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		B85A0F212ACD0EEF009E0A00 /* AddAlarm */ = {
-			isa = PBXGroup;
-			children = (
-				B85A0F222ACD0EFF009E0A00 /* AddAlarmViewController.swift */,
-			);
-			path = AddAlarm;
-			sourceTree = "<group>";
-		};
 		D679F7FF2AC11D380040E51B = {
 			isa = PBXGroup;
 			children = (
@@ -127,6 +127,9 @@
 			isa = PBXGroup;
 			children = (
 				D6AF47A72AC120B800E5C813 /* AlarmViewController.swift */,
+				F1D2EC5B2ACD4773008A8D7B /* AddAlarmController.swift */,
+				F1D2EC5D2ACD4796008A8D7B /* AlarmCell.swift */,
+				F1D2EC5F2ACD47AD008A8D7B /* UNUserNotificationCenter.swift */,
 			);
 			path = Alarm;
 			sourceTree = "<group>";
@@ -215,6 +218,9 @@
 			dependencies = (
 			);
 			name = Alarm_App;
+			packageProductDependencies = (
+				F1D2EC622ACD481A008A8D7B /* SnapKit */,
+			);
 			productName = Alarm_App;
 			productReference = D679F8082AC11D380040E51B /* Alarm_App.app */;
 			productType = "com.apple.product-type.application";
@@ -243,6 +249,9 @@
 				Base,
 			);
 			mainGroup = D679F7FF2AC11D380040E51B;
+			packageReferences = (
+				F1D2EC612ACD481A008A8D7B /* XCRemoteSwiftPackageReference "SnapKit" */,
+			);
 			productRefGroup = D679F8092AC11D380040E51B /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -269,10 +278,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F1D2EC5C2ACD4773008A8D7B /* AddAlarmController.swift in Sources */,
 				D679F64F2AC16C3400566BB8 /* WorldTableViewCell.swift in Sources */,
 				D6AF47AC2AC120D700E5C813 /* TimerViewController.swift in Sources */,
 				D679F6512AC16F5000566BB8 /* WorldListViewController.swift in Sources */,
 				F174F4642AC131E7009AAAB7 /* WorldClock.swift in Sources */,
+				F1D2EC602ACD47AD008A8D7B /* UNUserNotificationCenter.swift in Sources */,
+				F1D2EC5E2ACD4796008A8D7B /* AlarmCell.swift in Sources */,
 				D6AF47B22AC1211A00E5C813 /* WorldClockViewController.swift in Sources */,
 				D6AF47B82AC122F400E5C813 /* CustomTabBarController.swift in Sources */,
 				D6AF47A82AC120B800E5C813 /* AlarmViewController.swift in Sources */,
@@ -490,6 +502,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		F1D2EC612ACD481A008A8D7B /* XCRemoteSwiftPackageReference "SnapKit" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SnapKit/SnapKit";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		F1D2EC622ACD481A008A8D7B /* SnapKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = F1D2EC612ACD481A008A8D7B /* XCRemoteSwiftPackageReference "SnapKit" */;
+			productName = SnapKit;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = D679F8002AC11D380040E51B /* Project object */;
 }
