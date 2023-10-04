@@ -15,9 +15,9 @@ protocol NotificationControllerProtocol {
     func notificationRegist(_ content: Alarm)
     func notificationRemove(_ content: Alarm)
     func notificationUpdate(_ content: Alarm)
-    func `notificationRegist`(_ content: Timer)
-    func `notificationRemove`(_ content: Timer)
-    func `notificationUpdate`(_ content: Timer)
+    func `notificationRegist`(_ content: TimerModel)
+    func `notificationRemove`(_ content: TimerModel)
+    func `notificationUpdate`(_ content: TimerModel)
 }
 
 final class NotificationController: NSObject, NotificationControllerProtocol {
@@ -126,7 +126,7 @@ final class NotificationController: NSObject, NotificationControllerProtocol {
         unUserNotificationCenter.add(request)
     }
     
-    func `notificationRegist`(_ content: Timer) {
+    func `notificationRegist`(_ content: TimerModel) {
         var time = content.timerTime
         var timeString = ""
         timeString = String(format: "%02d", time/3600) + ":"
@@ -143,11 +143,11 @@ final class NotificationController: NSObject, NotificationControllerProtocol {
         unUserNotificationCenter.add(request)
     }
     
-    func `notificationRemove`(_ content: Timer) {
+    func `notificationRemove`(_ content: TimerModel) {
         unUserNotificationCenter.removePendingNotificationRequests(withIdentifiers: ["Timer"])
     }
     
-    func `notificationUpdate`(_ content: Timer) {
+    func `notificationUpdate`(_ content: TimerModel) {
         notificationRemove(content)
         notificationRegist(content)
     }
