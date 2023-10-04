@@ -22,7 +22,7 @@ class TimerView: UIView {
     let pauseButton = UIButton()
     
     let soundSelectionButton = DualLabelButton()
-    
+    let stopSoundButton = UIButton()
     let timerLabel = UILabel()
     let timeLabel = UILabel()
     var timer: Timer?
@@ -120,6 +120,20 @@ class TimerView: UIView {
             soundSelectionButton.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 20),
             soundSelectionButton.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -20),
             soundSelectionButton.heightAnchor.constraint(equalToConstant: 50)
+        ])
+        stopSoundButton.setTitle("벨소리 중단", for: .normal)
+        stopSoundButton.backgroundColor = .systemGray
+        stopSoundButton.layer.cornerRadius = 25
+        stopSoundButton.contentHorizontalAlignment = .center
+        stopSoundButton.isHidden = true
+
+        addSubview(stopSoundButton)
+        stopSoundButton.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+            stopSoundButton.topAnchor.constraint(equalTo: soundSelectionButton.bottomAnchor, constant: 20),
+            stopSoundButton.centerXAnchor.constraint(equalTo: centerXAnchor),
+            stopSoundButton.widthAnchor.constraint(equalTo: soundSelectionButton.widthAnchor),
+            stopSoundButton.heightAnchor.constraint(equalTo: soundSelectionButton.heightAnchor)
         ])
     }
     

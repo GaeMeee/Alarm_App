@@ -5,8 +5,8 @@
 //  Created by JeonSangHyeok on 2023/09/25.
 //
 
-import UIKit
 import AVFoundation
+import UIKit
 
 class TimerViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource {
     let timerView = TimerView()
@@ -35,6 +35,7 @@ class TimerViewController: UIViewController, UIPickerViewDelegate, UIPickerViewD
         timerView.soundSelectionButton.addTarget(self, action: #selector(soundSelectionButtonTapped), for: .touchUpInside)
         timerView.pauseButton.addTarget(self, action: #selector(pauseButtonTapped), for: .touchUpInside)
         setupAudioSession()
+        timerView.stopSoundButton.addTarget(self, action: #selector(stopSoundButtonTapped), for: .touchUpInside)
     }
     
     func setupAudioSession() {
@@ -87,6 +88,7 @@ class TimerViewController: UIViewController, UIPickerViewDelegate, UIPickerViewD
             RunLoop.current.add(timer!, forMode: .common)
         }
     }
+
     @objc func soundSelected(_ notification: Notification) {
         if let soundName = notification.object as? String {
             print("Sound Selected: \(soundName)")
@@ -94,9 +96,11 @@ class TimerViewController: UIViewController, UIPickerViewDelegate, UIPickerViewD
             selectedSoundName = soundName
         }
     }
+
     func playSound() {
         guard let soundName = selectedSoundName,
-              let url = Bundle.main.url(forResource: soundName, withExtension: "mp3") else {
+              let url = Bundle.main.url(forResource: soundName, withExtension: "mp3")
+        else {
             print("Error: Selected sound name not found or invalid")
             return
         }
@@ -110,11 +114,9 @@ class TimerViewController: UIViewController, UIPickerViewDelegate, UIPickerViewD
         }
     }
 
-
     func timerFinished() {
         playSound()
     }
-
 
     @objc func updateTime() {
         if remainingTime > 0 {
@@ -127,7 +129,13 @@ class TimerViewController: UIViewController, UIPickerViewDelegate, UIPickerViewD
             print("Timer Finished")
             resetTimer()
             playSound()
+            timerView.stopSoundButton.isHidden = false
         }
+    }
+
+    @objc func stopSoundButtonTapped() {
+        audioPlayer?.stop()
+        timerView.stopSoundButton.isHidden = true
     }
     
     @objc func pauseButtonTapped() {
@@ -161,6 +169,7 @@ class TimerViewController: UIViewController, UIPickerViewDelegate, UIPickerViewD
         timerView.minuteLabel.isHidden = false
         timerView.secondLabel.isHidden = false
         timerView.timeLabel.isHidden = true
+        timerView.stopSoundButton.isHidden = true
     }
     
     @objc func soundSelectionButtonTapped() {
