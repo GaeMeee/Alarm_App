@@ -7,11 +7,23 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+
+		07A288702AC56912006B8E71 /* SoundSelectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07A2886F2AC56912006B8E71 /* SoundSelectionViewController.swift */; };
+		07A288722AC5D593006B8E71 /* DualLabelButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07A288712AC5D593006B8E71 /* DualLabelButton.swift */; };
+		07A288772AC9FD6A006B8E71 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 07A288762AC9FD6A006B8E71 /* AudioToolbox.framework */; };
+		07A288792AC9FF68006B8E71 /* AVFAudio.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 07A288782AC9FF68006B8E71 /* AVFAudio.framework */; };
+		07A2887E2ACD0BB4006B8E71 /* 전파탐지기.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 07A2887C2ACD0BB4006B8E71 /* 전파탐지기.mp3 */; };
+		07A2887F2ACD0BB4006B8E71 /* Contents.json in Resources */ = {isa = PBXBuildFile; fileRef = 07A2887D2ACD0BB4006B8E71 /* Contents.json */; };
+		07A288822ACD1989006B8E71 /* 도입음.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 07A288812ACD1989006B8E71 /* 도입음.mp3 */; };
+		07A288842ACD1A82006B8E71 /* 프레스토.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 07A288832ACD1A82006B8E71 /* 프레스토.mp3 */; };
+		07BAEBF42AC17F3B00FA420B /* TimerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07BAEBF02AC17D1E00FA420B /* TimerView.swift */; };
+
 		D679F6492AC14CAA00566BB8 /* WorldView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D679F6482AC14CAA00566BB8 /* WorldView.swift */; };
 		D679F64D2AC167E700566BB8 /* WolrdDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D679F64C2AC167E700566BB8 /* WolrdDataManager.swift */; };
 		D679F64F2AC16C3400566BB8 /* WorldTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D679F64E2AC16C3300566BB8 /* WorldTableViewCell.swift */; };
 		D679F6512AC16F5000566BB8 /* WorldListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D679F6502AC16F5000566BB8 /* WorldListViewController.swift */; };
 		D679F6532AC1968900566BB8 /* WorldListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D679F6522AC1968900566BB8 /* WorldListView.swift */; };
+
 		D679F80C2AC11D380040E51B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D679F80B2AC11D380040E51B /* AppDelegate.swift */; };
 		D679F80E2AC11D380040E51B /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D679F80D2AC11D380040E51B /* SceneDelegate.swift */; };
 		D679F8152AC11D3A0040E51B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D679F8142AC11D3A0040E51B /* Assets.xcassets */; };
@@ -28,11 +40,23 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+
+		07A2886F2AC56912006B8E71 /* SoundSelectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SoundSelectionViewController.swift; sourceTree = "<group>"; };
+		07A288712AC5D593006B8E71 /* DualLabelButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = DualLabelButton.swift; path = Timer/DualLabelButton.swift; sourceTree = SOURCE_ROOT; };
+		07A288762AC9FD6A006B8E71 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
+		07A288782AC9FF68006B8E71 /* AVFAudio.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFAudio.framework; path = System/Library/Frameworks/AVFAudio.framework; sourceTree = SDKROOT; };
+		07A2887C2ACD0BB4006B8E71 /* 전파탐지기.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "전파탐지기.mp3"; sourceTree = "<group>"; };
+		07A2887D2ACD0BB4006B8E71 /* Contents.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Contents.json; sourceTree = "<group>"; };
+		07A288812ACD1989006B8E71 /* 도입음.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "도입음.mp3"; sourceTree = "<group>"; };
+		07A288832ACD1A82006B8E71 /* 프레스토.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "프레스토.mp3"; sourceTree = "<group>"; };
+		07BAEBF02AC17D1E00FA420B /* TimerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = TimerView.swift; path = Timer/TimerView.swift; sourceTree = SOURCE_ROOT; };
+
 		D679F6482AC14CAA00566BB8 /* WorldView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorldView.swift; sourceTree = "<group>"; };
 		D679F64C2AC167E700566BB8 /* WolrdDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WolrdDataManager.swift; sourceTree = "<group>"; };
 		D679F64E2AC16C3300566BB8 /* WorldTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorldTableViewCell.swift; sourceTree = "<group>"; };
 		D679F6502AC16F5000566BB8 /* WorldListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorldListViewController.swift; sourceTree = "<group>"; };
 		D679F6522AC1968900566BB8 /* WorldListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorldListView.swift; sourceTree = "<group>"; };
+
 		D679F8082AC11D380040E51B /* Alarm_App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Alarm_App.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D679F80B2AC11D380040E51B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D679F80D2AC11D380040E51B /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -55,17 +79,40 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				07A288792AC9FF68006B8E71 /* AVFAudio.framework in Frameworks */,
+				07A288772AC9FD6A006B8E71 /* AudioToolbox.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+
+		07A288752AC9FD6A006B8E71 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				07A288782AC9FF68006B8E71 /* AVFAudio.framework */,
+				07A288762AC9FD6A006B8E71 /* AudioToolbox.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		07A2887A2ACD0B08006B8E71 /* Sounds */ = {
+			isa = PBXGroup;
+			children = (
+				07A288832ACD1A82006B8E71 /* 프레스토.mp3 */,
+				07A288812ACD1989006B8E71 /* 도입음.mp3 */,
+				07A2887C2ACD0BB4006B8E71 /* 전파탐지기.mp3 */,
+				07A2887D2ACD0BB4006B8E71 /* Contents.json */,
+			);
+			path = Sounds;
+
 		7D4770B92AC1B6370008C95E /* View */ = {
 			isa = PBXGroup;
 			children = (
 			);
 			path = View;
+
 			sourceTree = "<group>";
 		};
 		D679F7FF2AC11D380040E51B = {
@@ -73,6 +120,7 @@
 			children = (
 				D679F80A2AC11D380040E51B /* Alarm_App */,
 				D679F8092AC11D380040E51B /* Products */,
+				07A288752AC9FD6A006B8E71 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -88,7 +136,11 @@
 			isa = PBXGroup;
 			children = (
 
+				07A2887A2ACD0B08006B8E71 /* Sounds */,
+
+
 				7D4770B92AC1B6370008C95E /* View */,
+
 				F174F4652AC1333B009AAAB7 /* Models */,
 
 				D679F80B2AC11D380040E51B /* AppDelegate.swift */,
@@ -96,7 +148,11 @@
 				D6AF47B72AC122F400E5C813 /* CustomTabBarController.swift */,
 				F174F4652AC1333B009AAAB7 /* Models */,
 				D6AF47A42AC1204700E5C813 /* Controlles */,
+
+				D6AF47A32AC1204300E5C813 /* View */,
+
 				D679F8142AC11D3A0040E51B /* Assets.xcassets */,
+
 				D679F8162AC11D3A0040E51B /* LaunchScreen.storyboard */,
 				D679F8192AC11D3A0040E51B /* Info.plist */,
 			);
@@ -126,6 +182,8 @@
 			isa = PBXGroup;
 			children = (
 				D6AF47AB2AC120D700E5C813 /* TimerViewController.swift */,
+				D679F8142AC11D3A0040E51B /* Assets.xcassets */,
+				07A2886F2AC56912006B8E71 /* SoundSelectionViewController.swift */,
 			);
 			path = Timer;
 			sourceTree = "<group>";
@@ -159,6 +217,8 @@
 		D6AF47B42AC1212800E5C813 /* Timer */ = {
 			isa = PBXGroup;
 			children = (
+				07BAEBF02AC17D1E00FA420B /* TimerView.swift */,
+				07A288712AC5D593006B8E71 /* DualLabelButton.swift */,
 			);
 			path = Timer;
 			sourceTree = "<group>";
@@ -251,7 +311,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				D679F8182AC11D3A0040E51B /* LaunchScreen.storyboard in Resources */,
+				07A288842ACD1A82006B8E71 /* 프레스토.mp3 in Resources */,
+				07A288822ACD1989006B8E71 /* 도입음.mp3 in Resources */,
+				07A2887E2ACD0BB4006B8E71 /* 전파탐지기.mp3 in Resources */,
 				D679F8152AC11D3A0040E51B /* Assets.xcassets in Resources */,
+				07A2887F2ACD0BB4006B8E71 /* Contents.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -262,7 +326,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+
+				07A288722AC5D593006B8E71 /* DualLabelButton.swift in Sources */,
+				07A288702AC56912006B8E71 /* SoundSelectionViewController.swift in Sources */,
+
 				D679F64F2AC16C3400566BB8 /* WorldTableViewCell.swift in Sources */,
+
 				D6AF47AC2AC120D700E5C813 /* TimerViewController.swift in Sources */,
 				D679F6512AC16F5000566BB8 /* WorldListViewController.swift in Sources */,
 				F174F4642AC131E7009AAAB7 /* WorldClock.swift in Sources */,
@@ -271,6 +340,7 @@
 				D6AF47A82AC120B800E5C813 /* AlarmViewController.swift in Sources */,
 				D679F6492AC14CAA00566BB8 /* WorldView.swift in Sources */,
 				D679F80C2AC11D380040E51B /* AppDelegate.swift in Sources */,
+				07BAEBF42AC17F3B00FA420B /* TimerView.swift in Sources */,
 				D6AF47AF2AC120FB00E5C813 /* StopWatchViewController.swift in Sources */,
 				F174F4602AC131B9009AAAB7 /* StopWatch.swift in Sources */,
 				D679F64D2AC167E700566BB8 /* WolrdDataManager.swift in Sources */,
