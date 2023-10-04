@@ -35,6 +35,14 @@ class CustomTabBarController: UITabBarController {
         
         self.viewControllers = [alarmNavigationController, timerNavigationController, stopNavigationController, worldNavigationCoontroller]
                 
+        let appearance = UITabBarAppearance()
+        appearance.backgroundColor = .black
+
+        self.tabBar.standardAppearance = appearance
+        self.tabBar.scrollEdgeAppearance = appearance
+
+        self.tabBar.isTranslucent = true
+        
         self.tabBar.unselectedItemTintColor = .gray
         self.tabBar.tintColor = .orange
     }
