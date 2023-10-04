@@ -1,13 +1,13 @@
+////
+////  Timer.swift
+////  Alarm_App
+////
+////  Created by hong on 2023/09/25.
+////
 //
-//  Timer.swift
-//  Alarm_App
+//import Foundation
 //
-//  Created by hong on 2023/09/25.
-//
-
-import Foundation
-
-struct Timer: Codable {
-    var timerTime: Int // 단위: 초
-    var remainingTime: Int // 단위: 초
-}
+//struct Timer: Codable {
+//    var timerTime: Int // 단위: 초
+//    var remainingTime: Int // 단위: 초
+//}
