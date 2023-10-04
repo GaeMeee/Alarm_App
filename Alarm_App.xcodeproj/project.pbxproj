@@ -29,6 +29,9 @@
 		F1D2EC5E2ACD4796008A8D7B /* AlarmCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1D2EC5D2ACD4796008A8D7B /* AlarmCell.swift */; };
 		F1D2EC602ACD47AD008A8D7B /* UNUserNotificationCenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1D2EC5F2ACD47AD008A8D7B /* UNUserNotificationCenter.swift */; };
 		F1D2EC632ACD481A008A8D7B /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = F1D2EC622ACD481A008A8D7B /* SnapKit */; };
+		F1D2EC652ACD4AF7008A8D7B /* TimerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1D2EC642ACD4AF7008A8D7B /* TimerView.swift */; };
+		F1D2EC672ACD4B0A008A8D7B /* DualLabelButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1D2EC662ACD4B0A008A8D7B /* DualLabelButton.swift */; };
+		F1D2EC692ACD4B81008A8D7B /* SoundSelectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1D2EC682ACD4B81008A8D7B /* SoundSelectionViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -55,6 +58,9 @@
 		F1D2EC5B2ACD4773008A8D7B /* AddAlarmController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddAlarmController.swift; sourceTree = "<group>"; };
 		F1D2EC5D2ACD4796008A8D7B /* AlarmCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlarmCell.swift; sourceTree = "<group>"; };
 		F1D2EC5F2ACD47AD008A8D7B /* UNUserNotificationCenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UNUserNotificationCenter.swift; sourceTree = "<group>"; };
+		F1D2EC642ACD4AF7008A8D7B /* TimerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerView.swift; sourceTree = "<group>"; };
+		F1D2EC662ACD4B0A008A8D7B /* DualLabelButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DualLabelButton.swift; sourceTree = "<group>"; };
+		F1D2EC682ACD4B81008A8D7B /* SoundSelectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SoundSelectionViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -138,6 +144,9 @@
 			isa = PBXGroup;
 			children = (
 				D6AF47AB2AC120D700E5C813 /* TimerViewController.swift */,
+				F1D2EC642ACD4AF7008A8D7B /* TimerView.swift */,
+				F1D2EC662ACD4B0A008A8D7B /* DualLabelButton.swift */,
+				F1D2EC682ACD4B81008A8D7B /* SoundSelectionViewController.swift */,
 			);
 			path = Timer;
 			sourceTree = "<group>";
@@ -288,9 +297,12 @@
 				D6AF47B22AC1211A00E5C813 /* WorldClockViewController.swift in Sources */,
 				D6AF47B82AC122F400E5C813 /* CustomTabBarController.swift in Sources */,
 				D6AF47A82AC120B800E5C813 /* AlarmViewController.swift in Sources */,
+				F1D2EC652ACD4AF7008A8D7B /* TimerView.swift in Sources */,
 				D679F6492AC14CAA00566BB8 /* WorldView.swift in Sources */,
 				D679F80C2AC11D380040E51B /* AppDelegate.swift in Sources */,
 				D6AF47AF2AC120FB00E5C813 /* StopWatchViewController.swift in Sources */,
+				F1D2EC672ACD4B0A008A8D7B /* DualLabelButton.swift in Sources */,
+				F1D2EC692ACD4B81008A8D7B /* SoundSelectionViewController.swift in Sources */,
 				F174F4602AC131B9009AAAB7 /* StopWatch.swift in Sources */,
 				D679F64D2AC167E700566BB8 /* WolrdDataManager.swift in Sources */,
 				F174F4622AC131D6009AAAB7 /* Alarm.swift in Sources */,
