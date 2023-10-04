@@ -25,3 +25,11 @@ struct Alarm: Codable {
         return meridiemFormatter.string(from: date)
     }
 }
+
+struct AlarmModel: Codable {
+    var setTime: Date
+    var content: String
+    var notificationSound: String
+    var snoozeEnabled: Bool
+    var isNotificationEnabled: Bool
+}
