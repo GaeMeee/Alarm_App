@@ -84,28 +84,11 @@
 			isa = PBXGroup;
 			children = (
 				07A288832ACD1A82006B8E71 /* 프레스토.mp3 */,
-				07A288802ACD1966006B8E71 /* 도입음.dataset */,
-				07A2887B2ACD0BB4006B8E71 /* 전파탐지기.dataset */,
-			);
-			path = Sounds;
-			sourceTree = "<group>";
-		};
-		07A2887B2ACD0BB4006B8E71 /* 전파탐지기.dataset */ = {
-			isa = PBXGroup;
-			children = (
+				07A288812ACD1989006B8E71 /* 도입음.mp3 */,
 				07A2887C2ACD0BB4006B8E71 /* 전파탐지기.mp3 */,
 				07A2887D2ACD0BB4006B8E71 /* Contents.json */,
 			);
-			path = "전파탐지기.dataset";
-			sourceTree = "<group>";
-		};
-		07A288802ACD1966006B8E71 /* 도입음.dataset */ = {
-			isa = PBXGroup;
-			children = (
-				07A288812ACD1989006B8E71 /* 도입음.mp3 */,
-			);
-			name = "도입음.dataset";
-			path = "도입음.dataset";
+			path = Sounds;
 			sourceTree = "<group>";
 		};
 		D679F7FF2AC11D380040E51B = {
