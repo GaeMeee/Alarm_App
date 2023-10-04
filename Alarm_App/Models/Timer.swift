@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct TimerModel: Codable {
+struct Timer: Codable {
     var timerTime: Int // 단위: 초
     var remainingTime: Int // 단위: 초
 }

@@ -21,10 +21,10 @@
 		D6AF47AF2AC120FB00E5C813 /* StopWatchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6AF47AE2AC120FB00E5C813 /* StopWatchViewController.swift */; };
 		D6AF47B22AC1211A00E5C813 /* WorldClockViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6AF47B12AC1211A00E5C813 /* WorldClockViewController.swift */; };
 		D6AF47B82AC122F400E5C813 /* CustomTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6AF47B72AC122F400E5C813 /* CustomTabBarController.swift */; };
-		F174F45E2AC131A7009AAAB7 /* TimerModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F174F45D2AC131A7009AAAB7 /* TimerModel.swift */; };
-		F174F4602AC131B9009AAAB7 /* StopWatchModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F174F45F2AC131B9009AAAB7 /* StopWatchModel.swift */; };
-		F174F4622AC131D6009AAAB7 /* AlarmModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F174F4612AC131D6009AAAB7 /* AlarmModel.swift */; };
-		F174F4642AC131E7009AAAB7 /* WorldClockModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F174F4632AC131E7009AAAB7 /* WorldClockModel.swift */; };
+		F174F45E2AC131A7009AAAB7 /* Timer.swift in Sources */ = {isa = PBXBuildFile; fileRef = F174F45D2AC131A7009AAAB7 /* Timer.swift */; };
+		F174F4602AC131B9009AAAB7 /* StopWatch.swift in Sources */ = {isa = PBXBuildFile; fileRef = F174F45F2AC131B9009AAAB7 /* StopWatch.swift */; };
+		F174F4622AC131D6009AAAB7 /* Alarm.swift in Sources */ = {isa = PBXBuildFile; fileRef = F174F4612AC131D6009AAAB7 /* Alarm.swift */; };
+		F174F4642AC131E7009AAAB7 /* WorldClock.swift in Sources */ = {isa = PBXBuildFile; fileRef = F174F4632AC131E7009AAAB7 /* WorldClock.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -44,10 +44,10 @@
 		D6AF47AE2AC120FB00E5C813 /* StopWatchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StopWatchViewController.swift; sourceTree = "<group>"; };
 		D6AF47B12AC1211A00E5C813 /* WorldClockViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorldClockViewController.swift; sourceTree = "<group>"; };
 		D6AF47B72AC122F400E5C813 /* CustomTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTabBarController.swift; sourceTree = "<group>"; };
-		F174F45D2AC131A7009AAAB7 /* TimerModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = TimerModel.swift; path = Alarm_App/Models/TimerModel.swift; sourceTree = SOURCE_ROOT; };
-		F174F45F2AC131B9009AAAB7 /* StopWatchModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = StopWatchModel.swift; path = Alarm_App/Models/StopWatchModel.swift; sourceTree = SOURCE_ROOT; };
-		F174F4612AC131D6009AAAB7 /* AlarmModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AlarmModel.swift; path = Alarm_App/Models/AlarmModel.swift; sourceTree = SOURCE_ROOT; };
-		F174F4632AC131E7009AAAB7 /* WorldClockModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = WorldClockModel.swift; path = Alarm_App/Models/WorldClockModel.swift; sourceTree = SOURCE_ROOT; };
+		F174F45D2AC131A7009AAAB7 /* Timer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Timer.swift; path = Alarm_App/Models/Timer.swift; sourceTree = SOURCE_ROOT; };
+		F174F45F2AC131B9009AAAB7 /* StopWatch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = StopWatch.swift; path = Alarm_App/Models/StopWatch.swift; sourceTree = SOURCE_ROOT; };
+		F174F4612AC131D6009AAAB7 /* Alarm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Alarm.swift; path = Alarm_App/Models/Alarm.swift; sourceTree = SOURCE_ROOT; };
+		F174F4632AC131E7009AAAB7 /* WorldClock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = WorldClock.swift; path = Alarm_App/Models/WorldClock.swift; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -182,10 +182,10 @@
 		F174F4652AC1333B009AAAB7 /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				F174F45D2AC131A7009AAAB7 /* TimerModel.swift */,
-				F174F45F2AC131B9009AAAB7 /* StopWatchModel.swift */,
-				F174F4612AC131D6009AAAB7 /* AlarmModel.swift */,
-				F174F4632AC131E7009AAAB7 /* WorldClockModel.swift */,
+				F174F45D2AC131A7009AAAB7 /* Timer.swift */,
+				F174F45F2AC131B9009AAAB7 /* StopWatch.swift */,
+				F174F4612AC131D6009AAAB7 /* Alarm.swift */,
+				F174F4632AC131E7009AAAB7 /* WorldClock.swift */,
 				D679F64C2AC167E700566BB8 /* WolrdDataManager.swift */,
 			);
 			path = Models;
@@ -264,19 +264,19 @@
 				D679F64F2AC16C3400566BB8 /* WorldTableViewCell.swift in Sources */,
 				D6AF47AC2AC120D700E5C813 /* TimerViewController.swift in Sources */,
 				D679F6512AC16F5000566BB8 /* WorldListViewController.swift in Sources */,
-				F174F4642AC131E7009AAAB7 /* WorldClockModel.swift in Sources */,
+				F174F4642AC131E7009AAAB7 /* WorldClock.swift in Sources */,
 				D6AF47B22AC1211A00E5C813 /* WorldClockViewController.swift in Sources */,
 				D6AF47B82AC122F400E5C813 /* CustomTabBarController.swift in Sources */,
 				D6AF47A82AC120B800E5C813 /* AlarmViewController.swift in Sources */,
 				D679F6492AC14CAA00566BB8 /* WorldView.swift in Sources */,
 				D679F80C2AC11D380040E51B /* AppDelegate.swift in Sources */,
 				D6AF47AF2AC120FB00E5C813 /* StopWatchViewController.swift in Sources */,
-				F174F4602AC131B9009AAAB7 /* StopWatchModel.swift in Sources */,
+				F174F4602AC131B9009AAAB7 /* StopWatch.swift in Sources */,
 				D679F64D2AC167E700566BB8 /* WolrdDataManager.swift in Sources */,
-				F174F4622AC131D6009AAAB7 /* AlarmModel.swift in Sources */,
+				F174F4622AC131D6009AAAB7 /* Alarm.swift in Sources */,
 				D679F6532AC1968900566BB8 /* WorldListView.swift in Sources */,
 				D679F80E2AC11D380040E51B /* SceneDelegate.swift in Sources */,
-				F174F45E2AC131A7009AAAB7 /* TimerModel.swift in Sources */,
+				F174F45E2AC131A7009AAAB7 /* Timer.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

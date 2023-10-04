@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct AlarmModel: Codable {
+struct Alarm: Codable {
     var setTime: Date
     var content: String
     var notificationSound: String

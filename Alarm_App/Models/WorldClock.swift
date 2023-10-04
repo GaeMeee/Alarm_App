@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct WorldClockModel: Codable {
+struct WorldClock: Codable {
     var location: String
     var currentTime: String // 단위: 시간
     var abbreveiation: String
