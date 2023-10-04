@@ -1,8 +1,8 @@
-//import Foundation
-//
+import Foundation
 
-//struct StopwatchModel {
-//    var timeElapsed: Int = 0
-//    var lapTimes: [Int] = []
-//}
+
+struct Stopwatch {
+    var timeElapsed: Int = 0
+    var lapTimes: [Int] = []
+}
 
