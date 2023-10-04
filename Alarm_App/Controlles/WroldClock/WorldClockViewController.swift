@@ -52,7 +52,6 @@ class WorldClockViewController: UIViewController {
         navigationController?.navigationBar.scrollEdgeAppearance = appearance
         
         self.navigationItem.rightBarButtonItem = UIBarButtonItem(image: .add, style: .done, target: self, action: #selector(addButtonTapped))
-        self.navigationItem.leftBarButtonItem = UIBarButtonItem(title: "편집", style: .done, target: self, action: #selector(editButtonTapped))
     }
     
     func updateTableCell(cell: WorldTableViewCell, indexPath: IndexPath) {
@@ -107,10 +106,6 @@ extension WorldClockViewController {
         let worldListVC = WorldListViewController(worldDataManager: worldDataManager)
         worldListVC.delegate = self
         self.present(worldListVC, animated: true)
-    }
-    
-    @objc func editButtonTapped() {
-        print("클릭")
     }
 }
 
