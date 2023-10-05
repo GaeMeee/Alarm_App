@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		07A288862ACEDD45006B8E71 /* 프레스토.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 07A288852ACEDD45006B8E71 /* 프레스토.mp3 */; };
+		7D6B53BD2ACEE07D00A48217 /* StopWatchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D6B53BC2ACEE07D00A48217 /* StopWatchView.swift */; };
 		D679F6492AC14CAA00566BB8 /* WorldView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D679F6482AC14CAA00566BB8 /* WorldView.swift */; };
 		D679F64D2AC167E700566BB8 /* WolrdDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D679F64C2AC167E700566BB8 /* WolrdDataManager.swift */; };
 		D679F64F2AC16C3400566BB8 /* WorldTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D679F64E2AC16C3300566BB8 /* WorldTableViewCell.swift */; };
@@ -43,6 +44,7 @@
 
 /* Begin PBXFileReference section */
 		07A288852ACEDD45006B8E71 /* 프레스토.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "프레스토.mp3"; sourceTree = "<group>"; };
+		7D6B53BC2ACEE07D00A48217 /* StopWatchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StopWatchView.swift; sourceTree = "<group>"; };
 		D679F6482AC14CAA00566BB8 /* WorldView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorldView.swift; sourceTree = "<group>"; };
 		D679F64C2AC167E700566BB8 /* WolrdDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WolrdDataManager.swift; sourceTree = "<group>"; };
 		D679F64E2AC16C3300566BB8 /* WorldTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorldTableViewCell.swift; sourceTree = "<group>"; };
@@ -90,6 +92,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		7D6B53BB2ACEE01A00A48217 /* Timer */ = {
+			isa = PBXGroup;
+			children = (
+				F1D2EC642ACD4AF7008A8D7B /* TimerView.swift */,
+			);
+			path = Timer;
+			sourceTree = "<group>";
+		};
 		D679F7FF2AC11D380040E51B = {
 			isa = PBXGroup;
 			children = (
@@ -127,10 +137,9 @@
 		D6AF47A32AC1204300E5C813 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				7D6B53BB2ACEE01A00A48217 /* Timer */,
 				D6AF47B62AC1214A00E5C813 /* WroldClock */,
 				D6AF47B52AC1212E00E5C813 /* StopWatch */,
-				D6AF47B42AC1212800E5C813 /* Timer */,
-				D6AF47B32AC1212100E5C813 /* Alarm */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -163,7 +172,6 @@
 			isa = PBXGroup;
 			children = (
 				D6AF47AB2AC120D700E5C813 /* TimerViewController.swift */,
-				F1D2EC642ACD4AF7008A8D7B /* TimerView.swift */,
 				F1D2EC662ACD4B0A008A8D7B /* DualLabelButton.swift */,
 				F1D2EC682ACD4B81008A8D7B /* SoundSelectionViewController.swift */,
 			);
@@ -188,23 +196,10 @@
 			path = WroldClock;
 			sourceTree = "<group>";
 		};
-		D6AF47B32AC1212100E5C813 /* Alarm */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Alarm;
-			sourceTree = "<group>";
-		};
-		D6AF47B42AC1212800E5C813 /* Timer */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Timer;
-			sourceTree = "<group>";
-		};
 		D6AF47B52AC1212E00E5C813 /* StopWatch */ = {
 			isa = PBXGroup;
 			children = (
+				7D6B53BC2ACEE07D00A48217 /* StopWatchView.swift */,
 			);
 			path = StopWatch;
 			sourceTree = "<group>";
@@ -352,6 +347,7 @@
 				D6AF47A82AC120B800E5C813 /* AlarmViewController.swift in Sources */,
 				F1D2EC652ACD4AF7008A8D7B /* TimerView.swift in Sources */,
 				D679F6492AC14CAA00566BB8 /* WorldView.swift in Sources */,
+				7D6B53BD2ACEE07D00A48217 /* StopWatchView.swift in Sources */,
 				D679F80C2AC11D380040E51B /* AppDelegate.swift in Sources */,
 				D6AF47AF2AC120FB00E5C813 /* StopWatchViewController.swift in Sources */,
 				F1D2EC672ACD4B0A008A8D7B /* DualLabelButton.swift in Sources */,
