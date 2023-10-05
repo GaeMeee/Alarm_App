@@ -2,7 +2,7 @@
 //  StopWatchView.swift
 //  Alarm_App
 //
-//  Created by 정일한 on 2023/10/04.
+//  Created by 정일한 on 2023/10/05.
 //
 
 import UIKit
