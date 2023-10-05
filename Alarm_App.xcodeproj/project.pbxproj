@@ -21,6 +21,9 @@
 		D6AF47AF2AC120FB00E5C813 /* StopWatchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6AF47AE2AC120FB00E5C813 /* StopWatchViewController.swift */; };
 		D6AF47B22AC1211A00E5C813 /* WorldClockViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6AF47B12AC1211A00E5C813 /* WorldClockViewController.swift */; };
 		D6AF47B82AC122F400E5C813 /* CustomTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6AF47B72AC122F400E5C813 /* CustomTabBarController.swift */; };
+		F13035782ACE7A41007860DE /* 도입음.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = F13035752ACE7A41007860DE /* 도입음.mp3 */; };
+		F13035792ACE7A41007860DE /* 전파탐지기.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = F13035762ACE7A41007860DE /* 전파탐지기.mp3 */; };
+		F130357A2ACE7A41007860DE /* 프레스토.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = F13035772ACE7A41007860DE /* 프레스토.mp3 */; };
 		F15832F52AC262EC00BAB769 /* Date+Format.swift in Sources */ = {isa = PBXBuildFile; fileRef = F15832F42AC262EC00BAB769 /* Date+Format.swift */; };
 		F15E21642ACD4FA600EC0F74 /* NotificationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F15E21632ACD4FA600EC0F74 /* NotificationController.swift */; };
 		F174F45E2AC131A7009AAAB7 /* Timer.swift in Sources */ = {isa = PBXBuildFile; fileRef = F174F45D2AC131A7009AAAB7 /* Timer.swift */; };
@@ -55,6 +58,9 @@
 		D6AF47AE2AC120FB00E5C813 /* StopWatchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StopWatchViewController.swift; sourceTree = "<group>"; };
 		D6AF47B12AC1211A00E5C813 /* WorldClockViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorldClockViewController.swift; sourceTree = "<group>"; };
 		D6AF47B72AC122F400E5C813 /* CustomTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTabBarController.swift; sourceTree = "<group>"; };
+		F13035752ACE7A41007860DE /* 도입음.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = "도입음.mp3"; path = "Alarm_App/Sounds/도입음.mp3"; sourceTree = SOURCE_ROOT; };
+		F13035762ACE7A41007860DE /* 전파탐지기.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = "전파탐지기.mp3"; path = "Alarm_App/Sounds/전파탐지기.mp3"; sourceTree = SOURCE_ROOT; };
+		F13035772ACE7A41007860DE /* 프레스토.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = "프레스토.mp3"; path = "Alarm_App/Sounds/프레스토.mp3"; sourceTree = SOURCE_ROOT; };
 		F15832F42AC262EC00BAB769 /* Date+Format.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Format.swift"; sourceTree = "<group>"; };
 		F15E21632ACD4FA600EC0F74 /* NotificationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotificationController.swift; sourceTree = "<group>"; };
 		F174F45D2AC131A7009AAAB7 /* Timer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Timer.swift; path = Alarm_App/Models/Timer.swift; sourceTree = SOURCE_ROOT; };
@@ -245,6 +251,9 @@
 			children = (
 				F1E76B0C2AC28AAE00C06763 /* AudioController.swift */,
 				F1E76B1B2AC2C08D00C06763 /* default.mp3 */,
+				F13035752ACE7A41007860DE /* 도입음.mp3 */,
+				F13035762ACE7A41007860DE /* 전파탐지기.mp3 */,
+				F13035772ACE7A41007860DE /* 프레스토.mp3 */,
 			);
 			path = Audio;
 			sourceTree = "<group>";
@@ -315,7 +324,10 @@
 			files = (
 				D679F8182AC11D3A0040E51B /* LaunchScreen.storyboard in Resources */,
 				D679F8152AC11D3A0040E51B /* Assets.xcassets in Resources */,
+				F130357A2ACE7A41007860DE /* 프레스토.mp3 in Resources */,
+				F13035792ACE7A41007860DE /* 전파탐지기.mp3 in Resources */,
 				F1E76B1C2AC2C08D00C06763 /* default.mp3 in Resources */,
+				F13035782ACE7A41007860DE /* 도입음.mp3 in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

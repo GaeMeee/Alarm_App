@@ -18,6 +18,7 @@ protocol NotificationControllerProtocol {
     func `notificationRegist`(_ content: TimerModel)
     func `notificationRemove`(_ content: TimerModel)
     func `notificationUpdate`(_ content: TimerModel)
+    func audioStop()
 }
 
 final class NotificationController: NSObject, NotificationControllerProtocol {
@@ -127,6 +128,9 @@ final class NotificationController: NSObject, NotificationControllerProtocol {
     }
     
     func `notificationRegist`(_ content: TimerModel) {
+        if content.remainingTime <= 0 {
+            return
+        }
         var time = content.timerTime
         var timeString = ""
         timeString = String(format: "%02d", time/3600) + ":"
@@ -136,7 +140,8 @@ final class NotificationController: NSObject, NotificationControllerProtocol {
         timeString += String(format: "%02d", time)
         let notificationContent = notificationContent(
             title: timeString,
-            body: "타이머"
+            body: "타이머",
+            sound: content.notificationSound
         )
         let trigger = UNTimeIntervalNotificationTrigger(timeInterval: .init(content.remainingTime), repeats: false)
         let request = UNNotificationRequest(identifier: "Timer", content: notificationContent, trigger: trigger)
@@ -161,10 +166,15 @@ final class NotificationController: NSObject, NotificationControllerProtocol {
         notificationRegist(content)
     }
     
+    func audioStop() {
+        audioController.stop()
+    }
+    
 }
 
 extension NotificationController: UNUserNotificationCenterDelegate {
     func userNotificationCenter(_ center: UNUserNotificationCenter, didReceive response: UNNotificationResponse, withCompletionHandler completionHandler: @escaping () -> Void) {
+        audioStop()
         completionHandler()
     }
     func userNotificationCenter(_ center: UNUserNotificationCenter, willPresent notification: UNNotification, withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void) {
