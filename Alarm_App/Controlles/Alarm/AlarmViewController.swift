@@ -11,9 +11,8 @@ import UserNotifications
 
 class AlarmViewController: UIViewController {
     
-    var alarms: [Alarm] = []
-    
-    let userNotificationCenter = UNUserNotificationCenter.current()
+    private var alarms: [Alarm] = []
+    private let notificationController = AppDelegate().notificationController
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -49,7 +48,7 @@ class AlarmViewController: UIViewController {
             
             UserDefaults.standard.set(try? PropertyListEncoder().encode(self.alarms), forKey: "alarms")
             
-            self.userNotificationCenter.addNotificationRequest(by: newAlarm)
+            notificationController.notificationRegist(newAlarm)
             
             self.alarmListTableView.reloadData()
         }
@@ -128,9 +127,10 @@ extension AlarmViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle,forRowAt indexPath: IndexPath) {
         switch editingStyle {
         case.delete:
+            let alarm = alarms[indexPath.row]
             self.alarms.remove(at: indexPath.row)
             UserDefaults.standard.set(try? PropertyListEncoder().encode(self.alarms), forKey: "alarms")
-            userNotificationCenter.removePendingNotificationRequests(withIdentifiers: [alarms[indexPath.row].id])
+            notificationController.notificationRemove(alarm)
             alarmListTableView.reloadData()
             return
         default:

@@ -9,11 +9,14 @@ import AVFoundation
 import UIKit
 
 class TimerViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource {
-    let timerView = TimerView()
-    var timer: Foundation.Timer?
-    var remainingTime: Int = 0
-    var selectedSoundName: String?
-    var audioPlayer: AVAudioPlayer?
+    
+    private let timerView = TimerView()
+    private var timer: Foundation.Timer?
+    private var remainingTime: Int = 0
+    private var selectedSoundName: String?
+    private var timerModel = TimerModel(timerTime: 0, remainingTime: 0)
+    private let notificationController = AppDelegate().notificationController
+    private let audioController = AudioController()
     
     override func loadView() {
         view = timerView
@@ -69,6 +72,8 @@ class TimerViewController: UIViewController, UIPickerViewDelegate, UIPickerViewD
         let second = timerView.secondPickerView.selectedRow(inComponent: 0)
         
         remainingTime = hour * 3600 + minute * 60 + second
+        timerModel = TimerModel(timerTime: remainingTime, remainingTime: remainingTime)
+        notificationController.notificationRegist(timerModel)
         
         if remainingTime > 0 {
             timerView.startButton.isHidden = true
@@ -98,24 +103,16 @@ class TimerViewController: UIViewController, UIPickerViewDelegate, UIPickerViewD
     }
 
     func playSound() {
-        guard let soundName = selectedSoundName,
-              let url = Bundle.main.url(forResource: soundName, withExtension: "mp3")
+        guard let soundName = selectedSoundName
         else {
             print("Error: Selected sound name not found or invalid")
             return
         }
-
-        do {
-            audioPlayer = try AVAudioPlayer(contentsOf: url)
-            audioPlayer?.prepareToPlay()
-            audioPlayer?.play()
-        } catch {
-            print("Error playing the audio file: \(error.localizedDescription)")
-        }
+        audioController.prepare(soundName)
     }
 
     func timerFinished() {
-        playSound()
+        audioController.stop()
     }
 
     @objc func updateTime() {
@@ -134,11 +131,13 @@ class TimerViewController: UIViewController, UIPickerViewDelegate, UIPickerViewD
     }
 
     @objc func stopSoundButtonTapped() {
-        audioPlayer?.stop()
+        audioController.stop()
         timerView.stopSoundButton.isHidden = true
+        notificationController.notificationRemove(timerModel)
     }
     
     @objc func pauseButtonTapped() {
+        notificationController.notificationRemove(timerModel)
         if timer != nil {
             timer?.invalidate()
             timer = nil
@@ -147,6 +146,8 @@ class TimerViewController: UIViewController, UIPickerViewDelegate, UIPickerViewD
             let hour = remainingTime / 3600
             let minute = (remainingTime % 3600) / 60
             let second = remainingTime % 60
+            timerModel.remainingTime = remainingTime
+            notificationController.notificationRegist(timerModel)
             timerView.timeLabel.text = String(format: "%02d:%02d:%02d", hour, minute, second)
             timer = Foundation.Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(updateTime), userInfo: nil, repeats: true)
             timerView.pauseButton.setTitle("일시정지", for: .normal)

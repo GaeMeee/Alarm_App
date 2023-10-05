@@ -9,8 +9,8 @@ import Foundation
 
 struct Alarm: Codable {
     var setTime: Date
-    var content: String = ""
-    var notificationSound: String = ""
+    var content: String = "알람 시간입니다. 지금 활동을 시작하세요!"
+    var notificationSound: String = "default.mp3"
     var snoozeEnabled: Bool = false
     var isNotificationEnabled: Bool = false
     

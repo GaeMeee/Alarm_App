@@ -12,8 +12,7 @@ import UserNotifications
 class AlarmCell: UITableViewCell {
     
     static let identifier = "AlarmCell"
-    
-    let userNotificationCenter = UNUserNotificationCenter.current()
+    private let notificationController = AppDelegate().notificationController
     
     lazy var timeCellStackView: UIStackView = {
         let timeCellStackView = UIStackView(arrangedSubviews: [ampmLabel, timeLabel])
@@ -48,11 +47,11 @@ class AlarmCell: UITableViewCell {
         
         alarms[sender.tag].isOn = sender.isOn
         UserDefaults.standard.set(try? PropertyListEncoder().encode(alarms), forKey: "alarms")
-        
+        let alarm = alarms[sender.tag]
         if sender.isOn {
-            userNotificationCenter.addNotificationRequest(by: alarms[sender.tag])
+            notificationController.notificationRegist(alarm)
         } else {
-            userNotificationCenter.removePendingNotificationRequests(withIdentifiers: [alarms[sender.tag].id])
+            notificationController.notificationRemove(alarm)
         }
     }
 
@@ -85,7 +84,6 @@ class AlarmCell: UITableViewCell {
             make.centerY.equalTo(self.contentView)
             make.trailing.equalTo(self.contentView).offset(-10)
         }
-        
         
     }
 
