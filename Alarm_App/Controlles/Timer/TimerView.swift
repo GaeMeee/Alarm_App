@@ -127,14 +127,14 @@ class TimerView: UIView {
         stopSoundButton.contentHorizontalAlignment = .center
         stopSoundButton.isHidden = true
 
-        addSubview(stopSoundButton)
-        stopSoundButton.translatesAutoresizingMaskIntoConstraints = false
-        NSLayoutConstraint.activate([
-            stopSoundButton.topAnchor.constraint(equalTo: soundSelectionButton.bottomAnchor, constant: 20),
-            stopSoundButton.centerXAnchor.constraint(equalTo: centerXAnchor),
-            stopSoundButton.widthAnchor.constraint(equalTo: soundSelectionButton.widthAnchor),
-            stopSoundButton.heightAnchor.constraint(equalTo: soundSelectionButton.heightAnchor)
-        ])
+//        addSubview(stopSoundButton)
+//        stopSoundButton.translatesAutoresizingMaskIntoConstraints = false
+//        NSLayoutConstraint.activate([
+//            stopSoundButton.topAnchor.constraint(equalTo: soundSelectionButton.bottomAnchor, constant: 20),
+//            stopSoundButton.centerXAnchor.constraint(equalTo: centerXAnchor),
+//            stopSoundButton.widthAnchor.constraint(equalTo: soundSelectionButton.widthAnchor),
+//            stopSoundButton.heightAnchor.constraint(equalTo: soundSelectionButton.heightAnchor)
+//        ])
     }
     
     private func setupTimerLabel() {

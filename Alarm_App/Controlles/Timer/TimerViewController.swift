@@ -16,7 +16,6 @@ class TimerViewController: UIViewController, UIPickerViewDelegate, UIPickerViewD
     private var selectedSoundName: String?
     private var timerModel = TimerModel(timerTime: 0, remainingTime: 0)
     private let notificationController = AppDelegate().notificationController
-    private let audioController = AudioController()
     
     override func loadView() {
         view = timerView
@@ -72,7 +71,8 @@ class TimerViewController: UIViewController, UIPickerViewDelegate, UIPickerViewD
         let second = timerView.secondPickerView.selectedRow(inComponent: 0)
         
         remainingTime = hour * 3600 + minute * 60 + second
-        timerModel = TimerModel(timerTime: remainingTime, remainingTime: remainingTime)
+        timerModel.timerTime = remainingTime
+        timerModel.remainingTime = remainingTime
         notificationController.notificationRegist(timerModel)
         
         if remainingTime > 0 {
@@ -99,20 +99,14 @@ class TimerViewController: UIViewController, UIPickerViewDelegate, UIPickerViewD
             print("Sound Selected: \(soundName)")
             timerView.soundSelectionButton.rightLabel.text = soundName
             selectedSoundName = soundName
+            timerModel.notificationSound = soundName + ".mp3"
+            timerModel.remainingTime = remainingTime
+            notificationController.notificationUpdate(timerModel)
         }
-    }
-
-    func playSound() {
-        guard let soundName = selectedSoundName
-        else {
-            print("Error: Selected sound name not found or invalid")
-            return
-        }
-        audioController.prepare(soundName)
     }
 
     func timerFinished() {
-        audioController.stop()
+        notificationController.audioStop()
     }
 
     @objc func updateTime() {
@@ -125,13 +119,12 @@ class TimerViewController: UIViewController, UIPickerViewDelegate, UIPickerViewD
         } else {
             print("Timer Finished")
             resetTimer()
-            playSound()
             timerView.stopSoundButton.isHidden = false
         }
     }
 
     @objc func stopSoundButtonTapped() {
-        audioController.stop()
+        timerFinished()
         timerView.stopSoundButton.isHidden = true
         notificationController.notificationRemove(timerModel)
     }
