@@ -11,7 +11,7 @@ class DualLabelButton: UIButton {
     let rightLabel: UILabel = {
         let label = UILabel()
         label.textAlignment = .right
-        label.textColor = .white
+        label.textColor = .black
         return label
     }()
     

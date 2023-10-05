@@ -9,13 +9,11 @@ import AVFoundation
 import UIKit
 
 class TimerViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource {
-    
-    private let timerView = TimerView()
-    private var timer: Foundation.Timer?
-    private var remainingTime: Int = 0
-    private var selectedSoundName: String?
-    private var timerModel = TimerModel(timerTime: 0, remainingTime: 0)
-    private let notificationController = AppDelegate().notificationController
+    let timerView = TimerView()
+    var timer: Foundation.Timer?
+    var remainingTime: Int = 0
+    var selectedSoundName: String?
+    var audioPlayer: AVAudioPlayer?
     
     override func loadView() {
         view = timerView
@@ -24,7 +22,7 @@ class TimerViewController: UIViewController, UIPickerViewDelegate, UIPickerViewD
     override func viewDidLoad() {
         super.viewDidLoad()
         NotificationCenter.default.addObserver(self, selector: #selector(soundSelected(_:)), name: Notification.Name("SoundSelected"), object: nil)
-        
+
         timerView.hourPickerView.delegate = self
         timerView.hourPickerView.dataSource = self
         timerView.minutePickerView.delegate = self
@@ -71,9 +69,6 @@ class TimerViewController: UIViewController, UIPickerViewDelegate, UIPickerViewD
         let second = timerView.secondPickerView.selectedRow(inComponent: 0)
         
         remainingTime = hour * 3600 + minute * 60 + second
-        timerModel.timerTime = remainingTime
-        timerModel.remainingTime = remainingTime
-        notificationController.notificationRegist(timerModel)
         
         if remainingTime > 0 {
             timerView.startButton.isHidden = true
@@ -86,6 +81,7 @@ class TimerViewController: UIViewController, UIPickerViewDelegate, UIPickerViewD
             timerView.minuteLabel.isHidden = true
             timerView.secondLabel.isHidden = true
             
+            timerView.pauseButton.backgroundColor = .yellow
             timerView.timeLabel.text = String(format: "%02d:%02d:%02d", hour, minute, second)
             
             timer?.invalidate()
@@ -99,14 +95,28 @@ class TimerViewController: UIViewController, UIPickerViewDelegate, UIPickerViewD
             print("Sound Selected: \(soundName)")
             timerView.soundSelectionButton.rightLabel.text = soundName
             selectedSoundName = soundName
-            timerModel.notificationSound = soundName + ".mp3"
-            timerModel.remainingTime = remainingTime
-            notificationController.notificationUpdate(timerModel)
+        }
+    }
+
+    func playSound() {
+        guard let soundName = selectedSoundName,
+              let url = Bundle.main.url(forResource: soundName, withExtension: "mp3")
+        else {
+            print("Error: Selected sound name not found or invalid")
+            return
+        }
+
+        do {
+            audioPlayer = try AVAudioPlayer(contentsOf: url)
+            audioPlayer?.prepareToPlay()
+            audioPlayer?.play()
+        } catch {
+            print("Error playing the audio file: \(error.localizedDescription)")
         }
     }
 
     func timerFinished() {
-        notificationController.audioStop()
+        playSound()
     }
 
     @objc func updateTime() {
@@ -119,31 +129,32 @@ class TimerViewController: UIViewController, UIPickerViewDelegate, UIPickerViewD
         } else {
             print("Timer Finished")
             resetTimer()
+            playSound()
             timerView.stopSoundButton.isHidden = false
         }
     }
 
     @objc func stopSoundButtonTapped() {
-        timerFinished()
+        audioPlayer?.stop()
         timerView.stopSoundButton.isHidden = true
-        notificationController.notificationRemove(timerModel)
     }
     
     @objc func pauseButtonTapped() {
-        notificationController.notificationRemove(timerModel)
         if timer != nil {
             timer?.invalidate()
             timer = nil
             timerView.pauseButton.setTitle("재개", for: .normal)
+            timerView.pauseButton.backgroundColor = .green
+            timerView.pauseButton.setTitleColor(.black, for: .normal)
         } else {
             let hour = remainingTime / 3600
             let minute = (remainingTime % 3600) / 60
             let second = remainingTime % 60
-            timerModel.remainingTime = remainingTime
-            notificationController.notificationRegist(timerModel)
             timerView.timeLabel.text = String(format: "%02d:%02d:%02d", hour, minute, second)
             timer = Foundation.Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(updateTime), userInfo: nil, repeats: true)
             timerView.pauseButton.setTitle("일시정지", for: .normal)
+            timerView.pauseButton.backgroundColor = .yellow
+            timerView.pauseButton.setTitleColor(.black, for: .normal)
         }
     }
     

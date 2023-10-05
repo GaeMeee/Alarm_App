@@ -22,7 +22,7 @@ class SoundSelectionViewController: UIViewController, UITableViewDelegate, UITab
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        view.backgroundColor = .white
+        view.backgroundColor = .black
         setupTableView()
         setupNavigationBar()
     }
@@ -37,6 +37,8 @@ class SoundSelectionViewController: UIViewController, UITableViewDelegate, UITab
         tableView.delegate = self
         tableView.dataSource = self
         tableView.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
+        navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.white]
+        tableView.backgroundColor = .black
         
         view.addSubview(tableView)
         tableView.translatesAutoresizingMaskIntoConstraints = false
@@ -55,6 +57,8 @@ class SoundSelectionViewController: UIViewController, UITableViewDelegate, UITab
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
         cell.textLabel?.text = sounds[indexPath.row]
+        cell.textLabel?.textColor = .white
+        cell.backgroundColor = .black
         if indexPath.row == selectedSoundIndex {
             cell.accessoryType = .checkmark
         } else {

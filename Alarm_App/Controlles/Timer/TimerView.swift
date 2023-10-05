@@ -31,16 +31,25 @@ class TimerView: UIView {
         super.init(frame: frame)
         setupViews()
         setupTimerLabel()
+        setupPickerStyles()
     }
     
     required init?(coder: NSCoder) {
         super.init(coder: coder)
         setupViews()
         setupTimerLabel()
+        setupPickerStyles()
+    }
+
+    private func setupPickerStyles() {
+        [hourPickerView, minutePickerView, secondPickerView].forEach {
+            $0.backgroundColor = .black
+            $0.setValue(UIColor.white, forKeyPath: "textColor")
+        }
     }
     
     private func setupViews() {
-        backgroundColor = .white
+        backgroundColor = .black
         
         hourLabel.text = "시간"
         minuteLabel.text = "분"
@@ -48,6 +57,7 @@ class TimerView: UIView {
         
         [hourLabel, minuteLabel, secondLabel].forEach {
             $0.font = .systemFont(ofSize: 20)
+            $0.textColor = .white
         }
         
         let hourStack = createHorizontalStackView(pickerView: hourPickerView, label: hourLabel, labelWidth: 40)
@@ -58,9 +68,11 @@ class TimerView: UIView {
         pickerStackView.axis = .horizontal
         pickerStackView.distribution = .fillEqually
         pickerStackView.spacing = 5
+        pickerStackView.backgroundColor = .black
         
         timeLabel.textAlignment = .center
         timeLabel.isHidden = true
+        timeLabel.textColor = .white
         
         addSubview(pickerStackView)
         pickerStackView.translatesAutoresizingMaskIntoConstraints = false
@@ -72,10 +84,12 @@ class TimerView: UIView {
         ])
         
         startButton.setTitle("시작", for: .normal)
-        startButton.backgroundColor = .systemGray
-
+        startButton.backgroundColor = .green
+        startButton.setTitleColor(.black, for: .normal)
+        
         cancelButton.setTitle("취소", for: .normal)
         cancelButton.backgroundColor = .systemGray
+        cancelButton.setTitleColor(.black, for: .normal)
 
         let buttonSize: CGFloat = 70
         
@@ -86,6 +100,7 @@ class TimerView: UIView {
         cancelButton.clipsToBounds = true
         
         pauseButton.setTitle("일시정지", for: .normal)
+        pauseButton.setTitleColor(.black, for: .normal)
         pauseButton.backgroundColor = .systemGray
         pauseButton.layer.cornerRadius = 35
         pauseButton.isHidden = true
@@ -108,6 +123,7 @@ class TimerView: UIView {
         ])
         
         soundSelectionButton.setTitle("타이머 종료 시", for: .normal)
+        soundSelectionButton.setTitleColor(.black, for: .normal)
         soundSelectionButton.backgroundColor = .systemGray
         soundSelectionButton.layer.cornerRadius = 25
         soundSelectionButton.contentHorizontalAlignment = .left
@@ -122,19 +138,20 @@ class TimerView: UIView {
             soundSelectionButton.heightAnchor.constraint(equalToConstant: 50)
         ])
         stopSoundButton.setTitle("벨소리 중단", for: .normal)
+        stopSoundButton.setTitleColor(.black, for: .normal)
         stopSoundButton.backgroundColor = .systemGray
         stopSoundButton.layer.cornerRadius = 25
         stopSoundButton.contentHorizontalAlignment = .center
         stopSoundButton.isHidden = true
 
-//        addSubview(stopSoundButton)
-//        stopSoundButton.translatesAutoresizingMaskIntoConstraints = false
-//        NSLayoutConstraint.activate([
-//            stopSoundButton.topAnchor.constraint(equalTo: soundSelectionButton.bottomAnchor, constant: 20),
-//            stopSoundButton.centerXAnchor.constraint(equalTo: centerXAnchor),
-//            stopSoundButton.widthAnchor.constraint(equalTo: soundSelectionButton.widthAnchor),
-//            stopSoundButton.heightAnchor.constraint(equalTo: soundSelectionButton.heightAnchor)
-//        ])
+        addSubview(stopSoundButton)
+        stopSoundButton.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+            stopSoundButton.topAnchor.constraint(equalTo: soundSelectionButton.bottomAnchor, constant: 20),
+            stopSoundButton.centerXAnchor.constraint(equalTo: centerXAnchor),
+            stopSoundButton.widthAnchor.constraint(equalTo: soundSelectionButton.widthAnchor),
+            stopSoundButton.heightAnchor.constraint(equalTo: soundSelectionButton.heightAnchor)
+        ])
     }
     
     private func setupTimerLabel() {
