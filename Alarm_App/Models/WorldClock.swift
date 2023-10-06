@@ -9,5 +9,6 @@ import Foundation
 
 struct WorldClock: Codable {
     var location: String
-    var timeDifference: Int // 단위: 시간 
+    var currentTime: String // 단위: 시간
+    var abbreveiation: String
 }
